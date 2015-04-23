@@ -1,0 +1,17 @@
+//See to expand: http://www.sitepoint.com/better-solution-managing-z-index-sass/
+$z-layers: (
+    floor: 0,
+    carpet: 25,
+    tabletop: 50,
+    ceiling: 100,
+    sub-floor: -9999
+);
+
+@function z-layer($layer) {
+    @return map-get($z-layers, $layer);
+}
+//Example
+//.element {
+//  z-index: z-layer(carpet)-1
+//}
+// outputs: z-index: 24;

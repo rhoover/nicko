@@ -1,0 +1,24 @@
+%no-focus-outline {
+    &:focus {
+        outline: none;
+    }
+    &:active {
+        outline: none;
+    }
+}
+
+%button-basics {
+    position: relative;
+    padding: rhythm(.5, 16px);
+    text-align: center;
+    text-decoration: none;
+    color: setcolor(black);
+    background: transparent;
+    border-radius: .25em;
+    border: .1em solid setcolor(green);
+    cursor: pointer;
+}
+
+%button-lifter {
+    @include box-shadow(2px 2px 4px 0px rgba(setcolor(teal, darker), .17));
+}

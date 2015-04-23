@@ -1,0 +1,216 @@
+.signup {
+
+/////////////////////////////////////////////////
+
+    &-form {
+        @extend %data-entry;
+    }
+
+/////////////////////////////////////////////////
+
+    &-header {
+        @extend %data-entry-header;
+    }
+
+/////////////////////////////////////////////////
+
+    &-details {
+        &-header {
+            @extend %data-entry-header;
+            margin-bottom: 0px;
+        }
+    }
+
+/////////////////////////////////////////////////
+
+    &-field {
+        @extend %data-entry-fieldset;
+        &-small {
+            @extend %data-entry-fieldset-small;
+        }
+    }
+
+/////////////////////////////////////////////////
+
+    &-input {
+        @extend %data-entry-input;
+        &:focus {
+            & ~ .signup-label { //pay attention to this!!
+                color: setcolor(teal);
+                @extend %animate-helper;
+                @include translate3d(50%, 0, 0);
+                @include transition-duration(1.75s);
+                @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                    @include translate3d(100%, 0, 0);
+                }
+            }
+        }
+    }
+
+/////////////////////////////////////////////////
+
+    &-label {
+        @extend %data-entry-label;
+        &.filled {
+            @extend %data-entry-label-filled;
+        }
+        &-text {
+            @extend %data-entry-label-text;
+        }
+    }
+
+/////////////////////////////////////////////////
+
+    &-messages {
+        @extend %data-entry-messages;
+        &-required {
+            @extend %data-entry-messages-required;
+        }
+        &-generic {
+            @extend %data-entry-messages-generic;
+        }
+        &-hide-valid {
+            @extend %data-entry-messages-hide-valid;
+        }
+        &-valid {
+            @extend %data-entry-messages-valid;
+        }
+    }
+
+/////////////////////////////////////////////////
+
+    &-services {
+        position: relative;
+        &-header {
+            @include span(12 wide of 12 no-gutters);
+            @extend %t-large;
+            @include type-weight(bold);
+            text-align: center;
+            margin: rhythm(1, 16px) 0;
+            font-family: $Roboto-Light;
+            border-bottom: .1em solid rgba(setcolor(green, darker), .5);
+            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                text-align: left;
+            }
+        }
+        &-select {
+            @extend %button-basics;
+            @include span(12 wide of 12 no-gutters);
+            position: relative;
+            padding: rhythm(.77, 16px) 0;
+            min-height: rhythm(2, 16px);
+            &:hover {
+                border: .1em solid setcolor(green, darker);
+                background: rgba(setcolor(green, lighter), .1);
+            }
+            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                @include span(6 of 24);
+                margin-bottom: rhythm(1, 16px);
+                @include type-scale(small);
+            }
+        }
+        &-text {
+            width: 100%;
+            margin-bottom: rhythm(1, 16px);
+        }
+        &-item {
+            @extend %button-basics;
+            padding: 0;
+            min-height: rhythm(2, 16px);
+            position: relative;
+            &:hover {
+                border: .1em solid setcolor(green, darker);
+                background: rgba(setcolor(green, lighter), .1);
+            }
+            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                @include span(6 of 24);
+                margin-bottom: rhythm(1, 16px);
+            }
+            &-checkbox {
+                position: absolute;
+                left: 0px;
+                width: 100%;
+                opacity: 0;
+                z-index: 2;
+                margin: 0;
+                min-height: inherit;
+                cursor: pointer;
+                &:checked + .signup-services-item-label {
+                    background: rgba(setcolor(green, lighter), .25);
+                }
+            }
+            &-label {
+                position: absolute;
+                left: 0px;
+                width: 100%;
+                min-height: inherit;
+                padding: rhythm(.5, 16px) 0 0;
+                @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                    padding: rhythm(.75, 16px) 0 0;
+                    @include type-scale(small);
+                }
+            }
+        }
+    }
+
+/////////////////////////////////////////////////
+
+    &-buttons {
+        @include span(12 wide of 12 no-gutters);
+        overflow: hidden;
+    }
+
+/////////////////////////////////////////////////
+
+    &-submit {
+        @extend %data-entry-submit;
+        &-disabled {
+            @extend %data-entry-submit-disabled;
+        }
+        &-success {
+            @extend %data-entry-submit-success;
+        }
+        &-wait {
+            @extend %data-entry-submit-wait;
+        }
+    }
+
+/////////////////////////////////////////////////
+
+    &-select {
+        @extend %button-basics;
+        @extend %button-lifter;
+        @extend %no-focus-outline;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+/////////////////////////////////////////////////
+
+    &-details {
+        &-text {
+            @include span(12 wide of 12 no-gutters);
+            @extend %t-base;
+            padding: rhythm(1, 16px) 0 0;
+            &:last-of-type {
+                margin-bottom: rhythm(2, 16px);
+                padding: rhythm(1, 16px) 0 rhythm(1, 16px);
+                border-bottom: .1em solid rgba(setcolor(green, darker), .5);
+            }
+            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                @include span(14 of 24);
+                margin: 0 span(6 of 24) 0;
+                padding: rhythm(1, 16px) 0 0;
+                text-align: left;
+            }
+        }
+    }
+/////////////////////////////////////////////////
+
+    &-bold {
+        font-weight: 600;
+    }
+}
+
+

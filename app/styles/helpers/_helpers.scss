@@ -1,0 +1,20 @@
+@import "utilities/colors";
+@import "utilities/sprites";
+@import "utilities/typography";
+@import "utilities/z-index";
+
+@import "mixins/dashboard";
+@import "mixins/expando-hover";
+@import "mixins/home-branding-background";
+
+@import "placeholders/font-render";
+@import "placeholders/animate";
+@import "placeholders/buttons";
+@import "placeholders/expando-hover";
+@import "placeholders/responsive-trigger";
+
+@import "placeholders/home-branding";
+@import "placeholders/dashboard";
+@import "placeholders/home-hero";
+@import "placeholders/onboard-data-entry";
+@import "placeholders/dashboard-data-entry";

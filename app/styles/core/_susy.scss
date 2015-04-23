@@ -1,0 +1,24 @@
+// Susy Core
+$susy: (
+    global-box-sizing: border-box,
+    columns: 12,
+    gutters: .33,
+    gutter-position: split,
+    debug: (
+        image: hide
+        )
+);
+
+// Susy Vars
+@include border-box-sizing;
+$columns-small: layout(12); //phone
+$columns-medium: layout(18); //tablet
+$columns-medium-large: layout(24); //laptop
+$columns-large: layout(24); //desktop
+
+// Breakpoint Vars
+// $bp-small : max-width 37.5em;
+// 600px = 37.5px, 960px = 60em, 1200px = 75em
+$bp-medium : (min-width 37.5em); //tablet
+$bp-medium-large : (min-width 60em); //laptop
+$bp-large : min-width 75em; //desktop monitor

@@ -1,0 +1,21 @@
+.details-animate {
+  @include transition-timing-function(cubic-bezier(0.250, 0.460, 0.450, 0.940) );
+  @include transition-property(all);
+  @include transition-duration(.75s);
+}
+.details-animate.ng-enter {
+  @include transition-delay(.75s);
+  @include translate3d(-125%, 0, 0);
+}
+.details-animate.ng-enter.ng-enter-active {
+  @include transition-property(all);
+  @include translate3d(0, 0, 0);
+}
+.details-animate.ng-leave {
+  @include transition-property(all);
+  @include translate3d(0, 0, 0);
+}
+.details-animate.ng-leave.ng-leave-active {
+  @include transition-property(all);
+  @include translate3d(-125%, 0, 0);
+}

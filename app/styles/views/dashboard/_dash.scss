@@ -1,0 +1,40 @@
+.dash {
+
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(24 wide of 24 no-gutters);
+        padding-left: span(2 of 24);
+        padding-top: rhythm(1.15, 16px);
+        height: 100%;
+        z-index: 10;
+    }
+
+    /////////////////////////////////////////////////
+
+    &-header {
+        @extend %t-large;
+        font-weight: 600;
+        margin: rhythm(2, 16px) 0 0;
+        padding: 0 span(1 of 12);
+        text-align: center;
+        border-top: 1px solid rgba(setcolor(green), .35);
+        border-bottom: 1px solid rgba(setcolor(green), .35);
+        @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+            margin: rhythm(2.85, 16px) span(1 of 24) 0 span(2.75 of 24);
+            padding: 0;
+            text-align: left;
+        }
+    }
+
+    /////////////////////////////////////////////////
+
+    &-help {
+        @extend %dash-view;
+        &-header {
+            height: rhythm(11, 16px);
+            border: .1em solid purple;
+            background-color: rgba(setcolor(purple), .05);
+            border-radius: .25em;
+            text-align: center;
+        }
+    }
+}

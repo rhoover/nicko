@@ -1,0 +1,173 @@
+%data-entry {
+    @include span(12 wide of 12 no-gutters);
+    padding: 0 span(1 of 12);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(14 of 24);
+        margin: 0 span(6 of 24);
+        padding: 0 span(1 of 24);
+    }
+}
+
+%data-entry-header {
+    @include span(12 wide of 12 no-gutters);
+    // @include type-weight(bold);
+    text-align: center;
+    padding: rhythm(3, 16px) span(1 of 12) rhythm(.75, 16px);
+    margin-bottom: rhythm(1.5, 16px);
+    font-family: $Roboto-Bold;
+    border-bottom: .1em solid rgba(setcolor(green, darker), .5);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(14 of 24);
+        padding: rhythm(3, 16px) 0 0;
+        margin: 0 span(6 of 24) rhythm(2, 16px);
+        text-align: left;
+        @include type-scale(large);
+    }
+}
+
+%data-entry-fieldset {
+    position: relative;
+    margin-bottom: rhythm(1, 16px);
+    padding: 0 span(1 of 24);
+    // &:last-of-type {
+    //     margin-bottom: rhythm(1, 16px);
+    // }
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+            margin-bottom: rhythm(2, 16px);
+        }
+}
+
+%data-entry-fieldset-small {
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(12 of 24 no-gutters);
+        padding: 0 span(1 of 24);
+    }
+}
+%data-entry-input {
+    @include type-weight(bold);
+    @extend %no-focus-outline;
+    @extend %animate-helper;
+    @include transition-duration(.75s);
+    position: relative;
+    display: block;
+    line-height: rhythm(1.25, 16px);
+    padding-left: rhythm(.5, 16px);
+    width: 100%;
+    z-index: 1;
+    background: transparent;
+    border-top: transparent;
+    border-style: solid;
+    border-color: setcolor(teal);
+    border-width: 0 0 .1em 0;
+    font-family: $Roboto-Thin;
+    color: darken-new(setcolor(black), 55%);
+    &:hover {
+        background: rgba(setcolor(teal), .1);
+        border-color: setcolor(teal);
+    }
+    &:focus {
+        background: rgba(setcolor(teal), .05);
+        border-color: setcolor(teal);
+        border-width: 0 0 .1em .1em;
+    }
+}
+
+%data-entry-label {
+    @include translate3d(0, 0, 0);
+    @extend %animate-helper;
+    @include transition-duration(1.75s);
+    display: block;
+    width: 100%;
+    font-family: $Roboto-Thin;
+    padding-left: rhythm(.5, 16px);
+    margin-bottom: rhythm(.25, 16px);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        width: 50%;
+    }
+}
+
+%data-entry-label-filled {
+    opacity: 0;
+    @extend %animate-helper;
+    @include transition-duration(1.75s);
+}
+
+%data-entry-label-text {
+    position: absolute;
+    @include translate3d(0, -100%, 0);
+}
+
+%data-entry-messages {
+    position: relative;
+    min-height: rhythm(1.5, 16px);
+    padding-left: rhythm(.5, 16px);
+    padding-top: rhythm(.25, 16px);
+    @extend %t-small;
+    margin-bottom: 0px;
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(13 of 13 no-gutters);
+    }
+}
+
+%data-entry-messages-required {
+    color: rgba(setcolor(red), .5);
+}
+
+%data-entry-messages-generic {
+    padding: rhythm(.25, 16px) rhythm(1, 16px);
+    border: .1em solid rgba(setcolor(red), .50);
+    border-radius: .25em;
+    background-color: rgba(setcolor(red), .05);
+    color: setcolor(red, darkest);
+}
+
+%data-entry-messages-hide-valid {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+}
+
+%data-entry-messages-valid {
+    opacity: 1;
+    padding: rhythm(.25, 16px) rhythm(1, 16px);
+    border: .1em solid rgba(setcolor(green, lighter), .35);
+    border-radius: .25em;
+    background-color: rgba(setcolor(green), .05);
+    color: rgba(setcolor(green), .5);
+}
+
+%data-entry-submit {
+    @extend %button-basics;
+    @extend %button-lifter;
+    @extend %t-base;
+    @extend %no-focus-outline;
+    @extend %animate-helper;
+    @include expando-hover(green, lighter, .25);
+    @include translate3d(0, 0, 0);
+    width: 100%;
+    z-index: 25;
+    font-family: $Roboto-Light;
+}
+
+%data-entry-submit-disabled {
+    opacity: .25;
+    cursor: default;
+    pointer-events: none;
+}
+
+%data-entry-submit-success {
+    @include translate3d(-200%, 0, 0);
+}
+
+%data-entry-submit-wait {
+    opacity: .4;
+    cursor: default;
+    pointer-events: none;
+}

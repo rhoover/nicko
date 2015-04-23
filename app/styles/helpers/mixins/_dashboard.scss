@@ -1,0 +1,8 @@
+@mixin dash-hero($color) {
+    border-color: rgba(setcolor($color), .35);
+    background-color: rgba(setcolor($color), .05);
+}
+
+@mixin dash-hero-content($color) {
+    border-top: .1em solid rgba(setcolor($color), .35);
+}

@@ -1,0 +1,242 @@
+%nav-icons {
+    display: block;
+    height: 30px;
+    width: 30px;
+    margin: 0 rhythm(1, 16px);
+    opacity: .6;
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        display: inline-block;
+        float: left;
+        margin: 0 span(.85 of 2) rhythm(.25, 16px);
+    opacity: .3;
+    }
+    @include susy-breakpoint($bp-large, $columns-large) {
+        margin: 0 span(1 of 2) rhythm(.25, 16px);
+    }
+}
+
+%dash-view {
+    @include span(12 wide of 12 no-gutters);
+    padding: rhythm(1, 16px) span(1 of 12) 0;
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        padding: 0 span(1 of 24);
+    }
+}
+
+%dash-hero {
+    position: relative;
+    overflow: auto;
+    height: rhythm(11, 16px);
+    margin-bottom: rhythm(1, 16px);
+    border-style: solid;
+    border-width: .1em;
+    border-radius: .25em;
+    color: setcolor(black);
+    @include box-shadow(2px 2px 4px 0px rgba(setcolor(teal, darker), .17));
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(8 of 24);
+        margin-bottom: 0px;
+        box-shadow: none;
+    }
+}
+
+%dash-action {
+    @include span(12 wide of 12 no-gutters);
+    margin-bottom: rhythm(1.05, 16px);
+}
+
+%dash-action-add-button {
+    @extend %button-basics;
+    @extend %button-lifter;
+    @extend %no-focus-outline;
+    @include expando-hover(green, lighter, .25);
+    margin-bottom: rhythm(1, 16px);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(5 of 24);
+        margin-bottom: 0px;
+    }
+}
+
+%dash-action-add-active-button {
+    cursor: default;
+    pointer-events: none;
+    opacity: .25;
+    @extend %animate-helper;
+    @extend %button-basics;
+    @extend %button-lifter;
+    @extend %no-focus-outline;
+    @include expando-hover(green, lighter, .25);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(5 of 24);
+    }
+}
+
+%dash-action-view-button {
+    opacity: .25;
+    cursor: default;
+    pointer-events: none;
+    @extend %animate-helper;
+    @extend %button-basics;
+    @extend %button-lifter;
+    @extend %no-focus-outline;
+    @include expando-hover(green, lighter, .25);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(5 last of 24);
+    }
+}
+
+%dash-action-view-active-button {
+    opacity: 1;
+    cursor: pointer;
+    pointer-events: auto;
+    @extend %animate-helper;
+    @extend %button-basics;
+    @extend %button-lifter;
+    @extend %no-focus-outline;
+    @include expando-hover(green, lighter, .25);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(5 last of 24);
+    }
+}
+
+%dash-data {
+    @include span(12 wide of 12 no-gutters);
+}
+
+%dash-content-action {
+    @include span(12 wide of 12 no-gutters);
+    min-height: rhythm(2, 16px);
+    padding: rhythm(.5, 16px) 0;
+    background-color: rgba(setcolor(green, lighter), .15);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        padding: rhythm(.5, 16px) rhythm(1, 16px);
+    }
+}
+
+%dash-content {
+    @include span(12 wide of 12 no-gutters);
+    margin-bottom: rhythm(3, 16px);
+    padding: 0 0 rhythm(1, 16px) 0;
+    border-top: .1em solid rgba(setcolor(green), .35);
+    border-bottom: .1em solid rgba(setcolor(green), .35);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        overflow-y: auto;
+        height: rhythm(16, 16px);
+        margin-bottom: 0px;
+        padding: 0 rhythm(1, 16px) rhythm(1, 16px);
+        &::-webkit-scrollbar {
+            width: 0 !important;
+        }
+    }
+}
+
+%dash-content-item {
+    @extend %button-lifter;
+    position: relative;
+    @include span(12 wide of 12 no-gutters);
+    margin-bottom: rhythm(1, 16px);
+    padding: rhythm(.5, 16px);
+    border-top: 1px solid rgba(setcolor(green), .35);
+    border-right: 1px solid rgba(setcolor(green), .35);
+    border-bottom: 1px solid rgba(setcolor(green), .35);
+    border-left: 1px solid rgba(setcolor(green), .35);
+    border-radius: .25em;
+    &:first-of-type {
+        margin-top: rhythm(1, 16px);
+    }
+    &:last-of-type{
+        margin-bottom: rhythm(1, 16px);
+    }
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        margin-bottom: 0px;
+        padding: rhythm(.5, 16px) 0;
+        box-shadow: none;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-radius: 0;
+        &:first-of-type {
+            margin-top: 0px;
+        }
+        &:nth-of-type(even) {
+            background: rgba(setcolor(teal), .03);
+        }
+    }
+}
+
+%dash-content-item-sub {
+    @include span(12 wide of 12 no-gutters);
+    margin-bottom: rhythm(.5, 16px);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(6 of 24);
+        margin-bottom: 0;
+    }
+}
+
+%dash-content-item-sub-type {
+    position: relative;
+    width: 100%;
+    float: left;
+    padding-top: rhythm(.75, 16px);
+    &:before {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        @extend %t-small;
+        color: setcolor(grey-blue, base);
+        text-decoration: underline;
+        text-decoration-color: rgba(setcolor(grey-blue, base), .5);
+    }
+}
+
+%dash-content-item-action {
+    position: relative;
+    @include span(12 wide of 12 no-gutters);
+    margin:  rhythm(.5, 16px) 0 0 0;
+    @extend %t-small;
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        // padding-left: span(16 of 24);
+        @include type-scale(base);
+        margin-bottom: 0px;
+    }
+}
+
+%dash-content-item-action-type {
+    position: relative;
+    @include span(6 of 12);
+    margin-bottom: 0px;
+    @include expando-hover(teal, base, .1);
+    padding: rhythm(.5, 16px);
+    @extend %t-small;
+    background-color: rgba(setcolor(teal, lighter), .05);
+    border: .2em solid rgba(setcolor(teal, lighter), .45);
+    border-radius: .25em;
+    cursor: pointer;
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(4 of 24);
+        margin-bottom: 0px;
+        border: .1em solid rgba(setcolor(teal, lighter), .45);
+    }
+}
+
+%dash-create {
+    @include span(12 wide of 12 no-gutters);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        padding: 0 span(6 of 24);
+    }
+}
+
+%dash-create-header {
+    @extend %t-large;
+    font-weight: 600;
+    width: 100%;
+    float: left;
+    margin: 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(setcolor(green), .35);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        margin: rhythm(1, 16px) 0 0 0;
+        border-top: none;
+        text-align: left;
+    }
+}

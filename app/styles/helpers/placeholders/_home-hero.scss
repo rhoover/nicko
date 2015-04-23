@@ -1,0 +1,9 @@
+%hero-image {
+    height: rhythm(15, 16px);
+    border-bottom: .1em solid rgba(setcolor(green, darker), .5);
+    background-image: linear-gradient(to right, rgba(setcolor(green, lighter) , 1), rgba(setcolor(green, lighter) , .98), rgba(setcolor(teal), .95)), url("/images/hero.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    opacity: .8;
+    border-bottom: .1em solid setcolor(green, darker);
+}

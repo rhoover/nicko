@@ -1,0 +1,102 @@
+.dash-nav {
+
+    @include span(12 wide of 12 no-gutters);
+    position: fixed;
+    bottom: 0;
+    border-top: .1em solid rgba(setcolor(teal, dark), .75);
+    background-color: setcolor(white, darker);
+    z-index: z-layer(carpet);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        height: 100%;
+        @include span(2 of 24 no-gutters);
+        bottom: auto;
+        margin-top: rhythm(2.5, 16px);
+        padding-top: rhythm(2.5, 16px);
+        padding-bottom: 0px;
+        border-top: none;
+        border-right: .1em solid rgba(setcolor(green), .35);
+    }
+
+/////////////////////////////////////////////////
+
+    &-item {
+        @include span(16.666666%);
+        @include expando-hover(green, base, .1);
+        @extend %no-focus-outline;
+        @extend %t-tiny;
+        margin: 0px;
+        padding-top: rhythm(.5, 16px);
+        padding-bottom: rhythm(.5, 16px);
+        position: relative;
+        // border-right: .2em solid rgba(setcolor(green), .35);
+        border-right: .2em solid rgba(setcolor(teal, dark), .4);
+        color: setcolor(black);
+        text-align: center;
+        cursor: pointer;
+        &:last-of-type {
+            border-right: none;
+        }
+        @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+            @include span(2 wide of 2 no-gutters);
+            @include type-scale(small);
+            padding: rhythm(.5, 16px) 0;
+            margin-bottom: 0;
+            border-top: .1em solid rgba(setcolor(green), .35);
+            border-right: none;
+            &:last-of-type {
+                border-bottom: .1em solid rgba(setcolor(green), .35);
+            }
+        }
+
+/////////////////////////////////////////////////
+
+        &-home {
+            @extend %nav-icons;
+            @extend .icons-home;
+        }
+
+/////////////////////////////////////////////////
+
+        &-jobs{
+            @extend %nav-icons;
+            @extend .icons-jobs;
+        }
+
+/////////////////////////////////////////////////
+
+        &-clients {
+            @extend %nav-icons;
+            @extend .icons-clients;
+        }
+
+/////////////////////////////////////////////////
+
+        &-invoice {
+            @extend %nav-icons;
+            @extend .icons-accounts;
+        }
+
+/////////////////////////////////////////////////
+
+        &-settings {
+            @extend %nav-icons;
+            @extend .icons-settings;
+        }
+
+/////////////////////////////////////////////////
+
+        &-help {
+            @extend %nav-icons;
+            @extend .icons-help;
+        }
+
+/////////////////////////////////////////////////
+
+        &-active {
+            background-color: rgba(setcolor(green), .5);
+            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                background-color: rgba(setcolor(green), .35);
+            }
+        }
+    }
+}

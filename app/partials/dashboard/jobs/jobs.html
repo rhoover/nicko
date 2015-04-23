@@ -1,0 +1,170 @@
+<span data-ng-switch="switch" data-ng-controller="DashJobsCtrl as spk">
+
+    <div class="jobs-action">
+        <p data-ng-click="switch='create' " data-ng-class="{'jobs-action-add-active':switch=='create'}" class="jobs-action-add">Add A Job</p>
+        <p data-ng-click="switch='data' " data-ng-class="{'jobs-action-view-active':switch=='create'}" class="jobs-action-view">View Job List</p>
+    </div>
+
+    <div data-ng-switch-default="data" class="jobs-data dash-create-animate">
+        <h2 class="jobs-data-header">Jobs List</h2>
+        <div class="jobs-data-action">
+            <div class="jobs-data-action-search">
+                <input type="search" name="jobsearch" class="jobs-data-action-search-box" data-ng-model="search.$" data-ng-blur="search=null">
+                <label for="jobsearch" class="jobs-data-action-search-label">
+                    <span class="jobs-data-action-search-label-text">Search or Filter</span>
+                </label>
+            </div>
+        </div>
+        <div class="jobs-data-content">
+            <div data-ng-repeat="job in spk.jobs | filter:search:strict track by job.creationMoment" class="jobs-data-content-item">
+                <div class="jobs-data-content-item-sub">
+                    <p class="jobs-data-content-item-sub-name">{{job.client.fullname}}</p>
+                    <p class="jobs-data-content-item-sub-date">{{job.date}}</p>
+                    <p class="jobs-data-content-item-sub-price">${{job.quote}}</p>
+                </div>
+                <div class="jobs-data-content-item-sub">
+                    <p class="jobs-data-content-item-sub-location">{{job.street ? job.street : job.client.street}}<br>{{job.city? job.city : job.client.city}}, {{job.state.abbreviation ? job.state.abbreviation : job.client.state.abbreviation}}  {{job.zip ? job.zip : job.client.zip}}</p>
+                    <p class="jobs-data-content-item-sub-contact">{{job.client.phone}}<br>{{job.client.email}}</p>
+                </div>
+                <div class="jobs-data-content-item-sub">
+                    <p class="jobs-data-content-item-sub-service">{{job.service.service}}</p>
+                    <p class="jobs-data-content-item-sub-frequency">{{job.frequency.name}}</p>
+                </div>
+                <div class="jobs-data-content-item-sub">
+                    <p class="jobs-data-content-item-sub-note">{{job.note}}</p>
+                </div>
+                <div class="jobs-data-content-item-action">
+                    <div title="Edit Contact Information" data-list-item-edit="{{job.$id}}" class="jobs-data-content-item-action-edit">
+                        <p>Edit Job Info</p>
+                    </div>
+                    <div title="Archive Contact Information" data-list-item-archive="{{job.$id}}" class="jobs-data-content-item-action-delete">
+                        <p>Archive Job</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-ng-switch-when="create" class="jobs-create dash-create-animate">
+
+        <h3 class="jobs-create-header">Let's Create A New Job</h3>
+
+        <form name="spk.newJob" novalidate data-ng-model-options="{updateOn: 'blur'}" data-ng-submit="spk.createNewJob(spk.newjob)" class="jobs-form">
+
+            <!-- Job Date    -->
+            <fieldset class="jobs-form-field">
+                <input type="text" format="dddd, MMMM Do YYYY" name="date" data-ng-model="spk.newjob.date"  pikaday="jobDatePicker" data-input-field-display data-prevent-enter data-ng-keyup="cancel($event)" data-required class="jobs-form-input">
+                <label for="date" class="jobs-form-label">
+                    <span class="jobs-form-label-text">Pick A Date</span>
+                </label>
+                <ng-messages for="spk.newJob.date.$error" class="jobs-form-messages">
+                    <ng-message when="required" class="jobs-form-messages-required">Required</ng-message>
+                    <p data-ng-class="{ 'jobs-form-messages-valid':spk.newJob.date.$valid}" class="jobs-form-messages-hide-valid">Cool, looks good!</p>
+                </ng-messages>
+
+            </fieldset>
+
+            <!-- Clients -->
+            <fieldset class="jobs-form-field">
+                <select name="client" data-ng-model="spk.newjob.client" data-ng-keyup="cancel($event)" data-ng-options="client.fullname for client in spk.clients" data-required class="jobs-form-select">
+                    <option value="" ng-if="false"></option>
+                </select>
+                <ng-messages for="spk.newJob.client.$error" class="jobs-form-messages">
+                    <ng-message when="required" class="jobs-form-messages-required">Required</ng-message>
+                    <p data-ng-class="{ 'jobs-form-messages-valid':spk.newJob.client.$valid}" class="jobs-form-messages-hide-valid">Cool, looks good!</p>
+                </ng-messages>
+            </fieldset>
+
+            <!-- Service -->
+            <fieldset class="jobs-form-field">
+                <select name="service" data-ng-model="spk.newjob.service" data-ng-keyup="cancel($event)" data-ng-options="service.service for service in spk.services" data-required class="jobs-form-select">
+                    <option value="" ng-if="false"></option>
+                </select>
+                <ng-messages for="spk.newJob.service.$error" class="jobs-form-messages">
+                    <ng-message when="required" class="jobs-form-messages-required">Required</ng-message>
+                    <p data-ng-class="{ 'jobs-form-messages-valid':spk.newJob.service.$valid}" class="jobs-form-messages-hide-valid">Cool, looks good!</p>
+                </ng-messages>
+            </fieldset>
+
+            <!-- Frequency -->
+            <fieldset class="jobs-form-field">
+                <select name="frequency" data-ng-model="spk.newjob.frequency" data-ng-keyup="cancel($event)" data-ng-options="frequency.name for frequency in spk.frequencies" data-required class="jobs-form-select">
+                    <option value="" ng-if="false"></option>
+                </select>
+                <ng-messages for="spk.newJob.frequency.$error" class="jobs-form-messages">
+                    <ng-message when="required" class="jobs-form-messages-required">Required</ng-message>
+                    <p data-ng-class="{ 'jobs-form-messages-valid':spk.newJob.frequency.$valid}" class="jobs-form-messages-hide-valid">Cool, looks good!</p>
+                </ng-messages>
+            </fieldset>
+
+            <!-- Quote -->
+            <fieldset class="jobs-form-field">
+                <input type="text" name="quote" data-ng-model="spk.newjob.quote" data-prevent-enter data-ng-keyup="cancel($event)" data-input-field-display data-ng-minlength="2" data-ng-maxlength="50" data-required class="jobs-form-input">
+                <label for="quote" class="jobs-form-label">
+                    <span class="jobs-form-label-text">Quoted Price (No $ Sign Please)</span>
+                </label>
+                <ng-messages for="spk.newJob.quote.$error" class="signup-messages">
+                    <ng-message when="required" class="clients-form-messages-required">Required</ng-message>
+                    <ng-message when="minlength" class="jobs-form-messages-messages-generic">Too short, this needs to be at least two(2) numbers long.</ng-message>
+                    <ng-message when="maxlength" class="jobs-form-messages-messages-generic">Too long, this needs to be less than fifty(50) numbers long.</ng-message>
+                    <p data-ng-class="{ 'jobs-form-messages-valid':spk.newJob.quote.$dirty}" class="jobs-form-messages-hide-valid">Cool, looks good!</p>
+                </ng-messages>
+            </fieldset>
+
+            <!-- Instructions -->
+            <fieldset class="jobs-form-field">
+                <input type="text" name="note" data-ng-model="spk.newjob.note" data-prevent-enter data-ng-keyup="cancel($event)" data-input-field-display data-ng-minlength="2" data-ng-maxlength="75" class="jobs-form-input">
+                <label for="note" class="jobs-form-label">
+                    <span class="jobs-form-label-text">Job Instructions</span>
+                </label>
+                <ng-messages for="spk.newJob.note.$error" class="signup-messages">
+                    <ng-message when="minlength" class="jobs-form-messages-messages-generic">Too short, this needs to be at least two(2) characters long.</ng-message>
+                    <ng-message when="maxlength" class="jobs-form-messages-messages-generic">Too long, this needs to be less than fifty(50) characters long.</ng-message>
+                    <p data-ng-class="{ 'jobs-form-messages-valid':spk.newJob.note.$dirty}" class="jobs-form-messages-hide-valid">Cool, looks good!</p>
+                </ng-messages>
+            </fieldset>
+
+            <h4 class="jobs-create-header">Fill This In If Job Location Is Different Than Billing Address</h4>
+
+            <!-- Street Address -->
+            <fieldset class="jobs-form-field">
+                <input type="text" name="street" data-ng-model="spk.newjob.street" data-prevent-enter data-ng-keyup="cancel($event)" data-input-field-display data-ng-minlength="2" data-ng-maxlength="50" class="jobs-form-input">
+                <label for="street" class="jobs-form-label">
+                    <span class="jobs-form-label-text">Street Address For Job Location</span>
+                </label>
+                <ng-messages for="spk.newJob.street.$error" class="jobs-form-messages">
+                    <ng-message when="minlength" class="jobs-form-messages-generic">Too short, this needs to be at least two(2) characters long.</ng-message>
+                    <ng-message when="maxlength" class="jobs-form-messages-generic">Too long, this needs to be less than fifty(50) characters long.</ng-message>
+                    <p data-ng-class="{ 'jobs-form-messages-valid':spk.newJob.street.$dirty}" class="jobs-form-messages-hide-valid">Cool, looks good!</p>
+                </ng-messages>
+            </fieldset>
+
+            <!-- City -->
+            <fieldset class="jobs-form-field-small">
+                <input type="text" name="city" data-ng-model="spk.newjob.city" data-prevent-enter data-ng-keyup="cancel($event)" data-input-field-display data-ng-minlength="2" data-ng-maxlength="75" class="jobs-form-input">
+                <label for="city" class="jobs-form-label">
+                    <span class="jobs-form-label-text">City</span>
+                </label>
+                <ng-messages for="spk.newJob.city.$error" class="jobs-form-messages">
+                    <ng-message when="minlength" class="jobs-form-messages-generic">Too short, this needs to be at least two(2) characters long.</ng-message>
+                    <ng-message when="maxlength" class="jobs-form-messages-generic">Too long, this needs to be less than fifty(50) characters long.</ng-message>
+                    <p data-ng-class="{ 'jobs-form-messages-valid':spk.newJob.city.$dirty}" class="jobs-form-messages-hide-valid">Cool, looks good!</p>
+                </ng-messages>
+            </fieldset>
+
+            <!-- State -->
+            <fieldset class="jobs-form-field-small">
+                <select name="state" data-ng-model="spk.newjob.state" data-ng-keyup="cancel($event)" data-ng-options="state.name for state in spk.states" class="jobs-form-select">
+                    <option value="" ng-if="false"></option>
+                </select>
+                <ng-messages for="spk.newJob.state.$error" class="jobs-form-messages">
+                    <p data-ng-class="{ 'jobs-form-messages-valid':spk.newJob.state.$dirty}" class="jobs-form-messages-hide-valid">Cool, looks good!</p>
+                </ng-messages>
+            </fieldset>
+
+            <!-- Submit Button-->
+            <button type="submit" data-ng-class="{ 'jobs-form-submit-disabled':spk.newJob.$invalid}" data-button-wait class="jobs-form-submit">All Done: Submit New Job Information</button>
+        </form>
+    </div>
+
+</span>

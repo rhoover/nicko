@@ -1,0 +1,6 @@
+@mixin home-branding-background($color, $colormode, $opacity) {
+    // background-color: rgba(setcolor($color, $colormode), .05);
+    background-color: rgba(setcolor($color, $colormode), $opacity);
+    border-top: .1em solid rgba(setcolor($color, $colormode), .5);
+    border-bottom: .1em solid rgba(setcolor($color, $colormode), .5);
+}

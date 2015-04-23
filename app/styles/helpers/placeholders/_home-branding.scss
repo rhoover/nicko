@@ -1,0 +1,24 @@
+%home-branding {
+    @include span(12 wide of 12 no-gutters);
+    padding: rhythm(1, 16px) span(1 of 12);
+    margin-bottom: rhythm(1, 16px);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        padding: rhythm(2, 16px) span(4 of 24);
+    }
+}
+
+%home-branding-section {
+    @include span(12 wide of 12 no-gutters);
+    &:before {
+        content: "";
+        float: left;
+        width: 60px;
+        height: 60px;
+        margin: 0 span(3 of 24) rhythm(4, 16px) 0;
+        opacity: .5;
+    }
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(8 of 24);
+        padding-right: span(1 of 24);
+    }
+}

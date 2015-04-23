@@ -1,0 +1,19 @@
+%expando-hover {
+    &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        bottom: 0px;
+        left: 0px;
+        visibility: hidden;
+        @include scaleX(0);
+        @extend %animate-helper;
+    }
+    &:hover {
+        &:after {
+            visibility: visible;
+            @include scaleX(1);
+        }
+    }
+}

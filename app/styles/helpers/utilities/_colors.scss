@@ -1,0 +1,89 @@
+//Courtesy: http://sassmeister.com/gist/d1b14280c6160f91f295
+@function lighten-new($color, $amount: 0%) {
+    @if $amount == 0 {$amount: 0%;}
+    @return lighten($color, ($amount/100%) * (100% - lightness($color)));
+}
+
+@function darken-new($color, $amount: 0%) {
+    @if $amount == 0 {$amount: 0%;}
+    @return darken($color, ($amount/100%) * (lightness($color)));
+}
+
+$green: rgb(112, 142, 78);
+$red: rgb(222, 100, 97);
+$teal: rgb(40, 130, 134);
+$orange: rgb(222, 155, 97);
+$purple: rgb(180, 78, 134);
+$black: rgb(44, 44, 44);
+$white: rgb(245, 245, 245);
+$grey-blue: rgb(96, 125, 139);
+
+//Courtesy: http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/
+$colors: (
+    green: (
+        base: $green,
+        greener: saturate($green, 33%),
+        darker: darken-new($green, 33%),
+        light: lighten-new($green, 7%),
+        lighter: lighten-new($green, 33%)
+    ),
+    red: (
+        base: $red,
+        darker: darken-new($red, 33%),
+        darkest: darken-new($red, 66%),
+        lighter: lighten-new($red, 33%)
+    ),
+    teal: (
+        base: $teal,
+        dark: darken-new($teal, 15%),
+        darker: darken-new($teal, 33%),
+        lighter: lighten-new($teal, 33%)
+    ),
+    orange: (
+        base: $orange,
+        darker: darken-new($orange, 33%),
+        lighter: lighten-new($orange, 33%)
+    ),
+    purple: (
+        base: $purple,
+        darker: darken-new($purple, 33%),
+        lighter: lighten-new($purple, 33%)
+    ),
+    black: (
+        base: $black,
+        darker: darken-new($black, 33%),
+        darkest: darken-new($black, 85%),
+        lighter: lighten-new($black, 33%)
+    ),
+    white: (
+        base: $white,
+        darker: darken-new($white, 7%),
+        darkest: darken-new($white, 100%),
+        lighter: lighten-new($white, 33%)
+    ),
+    grey-blue: (
+        base: $grey-blue,
+        dark: darken-new($grey-blue, 7%),
+        darker: darken-new($grey-blue, 33%),
+        lighter: lighten-new($grey-blue, 33%)
+    )
+);
+// Our function for shorter usage of map-get();
+@function setcolor($color, $tone: base) {
+    @return map-get(map-get($colors, $color), $tone);
+}
+// Sass
+// .element {
+//   color: setcolor(brown);
+// }
+// .element--light {
+//   color: setcolor(brown, light);
+// }
+
+// // Output
+// .element {
+//     color: #ab906b;
+// }
+// .element--light {
+//     color: #ecdac3;
+// }

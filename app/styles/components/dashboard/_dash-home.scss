@@ -1,0 +1,52 @@
+.dash {
+    &-home {
+        @extend %dash-view;
+        &-hero {
+            &-jobs {
+                @extend %dash-hero;
+                @include dash-hero(purple);
+            }
+            &-invoices {
+                @extend %dash-hero;
+                @include dash-hero(red);
+            }
+            &-revenue {
+                @extend %dash-hero;
+                @include dash-hero(green);
+            }
+            &-header {
+                text-align: center;
+            }
+            &-content {
+                &-jobs {
+                    @include dash-hero-content(purple);
+                }
+                &-invoices {
+                    @include dash-hero-content(orange);
+                }
+                &-revenue {
+                    @include dash-hero-content(green);
+                }
+            }
+        }
+        &-notify {
+            width: 100%;
+            float: left;
+            height: rhythm(8, 16px);
+            margin-bottom: rhythm(3, 16px);
+            padding: rhythm(1, 16px) 0;
+            border-top: 1px solid rgba(setcolor(green), .35);
+            border-bottom: 1px solid rgba(setcolor(green), .35);
+            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                margin-bottom: 0px;
+            }
+            &-header {
+                @extend %t-large;
+                font-weight: 600;
+                width: 100%;
+                float: left;
+                margin: rhythm(1, 16px) 0 0;
+            }
+        }
+    }
+}

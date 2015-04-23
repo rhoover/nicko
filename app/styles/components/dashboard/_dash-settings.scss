@@ -1,0 +1,106 @@
+.settings {
+    @extend %dash-view;
+    &-hero {
+
+        &-basic {
+            @extend %dash-hero;
+            @include dash-hero(grey-blue);
+        }
+        &-services {
+            @extend %dash-hero;
+            @include dash-hero(grey-blue);
+        }
+        &-leaders {
+            @extend %dash-hero;
+            @include dash-hero(grey-blue);
+            margin-bottom: rhythm(4, 16px);
+            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                margin-bottom: 0px;
+            }
+        }
+
+        &-header {
+            width: 100%;
+            float: left;
+            text-align: center;
+            border-bottom: .1em solid rgba(setcolor(grey-blue), .5);
+        }
+        &-content {
+            position: relative;
+            overflow: auto;
+            padding: rhythm(.5, 16px);
+            &-inline {
+                display: inline;
+            }
+            &-editable {
+                margin-bottom: rhythm(.25, 16px);
+                border-bottom: .1em solid rgba(setcolor(teal), .5);
+                background: rgba(setcolor(teal), .1);
+            }
+            &-save {
+                @extend %button-basics;
+                @extend %button-lifter;
+                @extend %no-focus-outline;
+                @include expando-hover(green, lighter, .25);
+                margin-top: rhythm(1, 16px);
+            }
+        }
+        &-edit {
+            @extend %dash-content-item-action-type;
+            position: absolute;
+            bottom: rhythm(.5, 16px);
+            left: 0px;
+            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                width: 40%;
+                left: rhythm(.5, 16px);
+            }
+            &:before {
+                content: "";
+                float: left;
+                width: 16px;
+                height: 16px;
+                margin: 0 5px 0 0;
+                opacity: .5;
+                @extend .icons-edit-small;
+            }
+        }
+        &-add {
+            @extend %dash-content-item-action-type;
+            position: absolute;
+            bottom: rhythm(.5, 16px);
+            left: 0px;
+            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                width: 40%;
+                left: rhythm(.5, 16px);
+            }
+            &:before {
+                content: "";
+                float: left;
+                width: 16px;
+                height: 16px;
+                margin: 0 5px 0 0;
+                opacity: .5;
+                @extend .icons-add-small;
+            }
+        }
+        &-delete {
+            @extend %dash-content-item-action-type;
+            position: absolute;
+            bottom: rhythm(.5, 16px);
+            right: 0;
+            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                width: 40%;
+                right: rhythm(.5, 16px);
+            }
+            &:before {
+                content: "";
+                float: left;
+                width: 16px;
+                height: 16px;
+                margin: 0 5px 0 0;
+                opacity: .5;
+                @extend .icons-delete-small;
+            }
+        }
+    }
+}

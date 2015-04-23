@@ -1,0 +1,42 @@
+<span data-ng-controller="DashSettingsCtrl as spk">
+    <div class="settings-hero-basic">
+        <header class="settings-hero-header">Basic Info</header>
+        <div class="settings-hero-content">
+            <p data-ng-attr-contenteditable="{{spk.editMode}}" data-ng-class="{'settings-hero-content-editable':spk.editMode}">
+                {{spk.addressone}}
+            </p>
+            <p data-ng-attr-contenteditable="{{spk.editMode}}" data-ng-class="{'settings-hero-content-editable':spk.editMode}">
+                {{spk.addresstwo}}
+            </p>
+            <p class="settings-hero-content-inline" data-ng-attr-contenteditable="{{spk.editMode}}" data-ng-class="{'settings-hero-content-editable':spk.editMode}">
+                {{spk.city}},
+            </p>
+            <p class="settings-hero-content-inline" data-ng-attr-contenteditable="{{spk.editMode}}" data-ng-class="{'settings-hero-content-editable':spk.editMode}">
+                {{spk.state}}
+            </p>
+            <p class="settings-hero-content-inline" data-ng-attr-contenteditable="{{spk.editMode}}" data-ng-class="{'settings-hero-content-editable':spk.editMode}">
+                {{spk.zip}}
+            </p>
+            <div class="settings-hero-content-save" data-ng-if="spk.editMode">Done: Save Changes</div>
+        </div>
+        <p data-toggle-edit="spk.toggleEditMode()" class="settings-hero-edit">Edit Info</p>
+    </div>
+
+    <div class="settings-hero-services">
+        <header class="settings-hero-header">Services Offered</header>
+        <div class="settings-hero-content">
+            <p data-ng-repeat="service in spk.services">{{service}}</p>
+        </div>
+        <p class="settings-hero-add">Add Stuff</p>
+        <p class="settings-hero-delete">Delete Stuff</p>
+    </div>
+
+    <div class="settings-hero-leaders">
+        <header class="settings-hero-header">Job Leaders</header>
+        <div class="settings-hero-content">
+            <p class="settings-hero-content-text">This will contain the list of Users (roles: owner, admin, admin assistant, crew leader, crew member) who have been registered by the home office for authorized log-in.</p>
+        </div>
+        <p class="settings-hero-add">Add Someone</p>
+        <p class="settings-hero-delete">Delete Someone</p>
+    </div>
+</span>

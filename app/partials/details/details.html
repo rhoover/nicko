@@ -1,0 +1,97 @@
+<h3 class="signup-details-header">Company Details</h3>
+<p class="signup-details-text">Excellent, you are good to go.  Congratulations!</p>
+<p class="signup-details-text">We aren't sending you an annoying confirmation email, you just registered with NickoLogistics, and that's good enough for us.</p>
+<p class="signup-details-text">Let's quickly fill out some details about your company, so you can get right to work managing your work:</p>
+
+    <form name="spk.clientDetails" novalidate data-ng-model-options="{updateOn: 'blur'}" data-ng-submit="spk.createClientDetails(spk.clientdetails)" class="signup-form">
+        <!-- Company Name -->
+        <fieldset class="signup-field">
+            <input type="text" name="companyname" data-ng-model="spk.clientdetails.companyname" data-prevent-enter data-ng-keyup="cancel($event)" data-input-field-display data-ng-minlength="2" data-ng-maxlength="50" data-required class="signup-input">
+            <label for="company-name" class="signup-label">
+                <span class="signup-label-text">Your Company's Name</span>
+            </label>
+            <ng-messages for="spk.clientDetails.companyname.$error" class="signup-messages">
+                <ng-message when="required" class="signup-messages-required">Required</ng-message>
+                <ng-message when="minlength" class="signup-messages-generic">Too short, this needs to be at least two(2) characters long.</ng-message>
+                <ng-message when="maxlength" class="signup-messages-generic">Too long, this needs to be less than fifty(50) characters long.</ng-message>
+                <p data-ng-class="{ 'signup-messages-valid':spk.clientDetails.companyname.$valid}" class="signup-messages-hide-valid">Cool, looks good!</p>
+            </ng-messages>
+        </fieldset>
+        <!-- Address One -->
+        <fieldset class="signup-field">
+            <input type="text" name="addressone" data-ng-model="spk.clientdetails.addressone" data-prevent-enter data-ng-keyup="cancel($event)" data-input-field-display data-ng-minlength="2" data-ng-maxlength="75" data-required class="signup-input">
+            <label for="address-one" class="signup-label">
+                <span class="signup-label-text">Street Address 1</span>
+            </label>
+            <ng-messages for="spk.clientDetails.addressone.$error" class="signup-messages">
+                <ng-message when="required" class="signup-messages-required">Required</ng-message>
+                <ng-message when="minlength" class="signup-messages-generic">Too short, this needs to be at least two(2) characters long.</ng-message>
+                <ng-message when="maxlength" class="signup-messages-generic">Too long, this needs to be less than fifty(50) characters long.</ng-message>
+                <p data-ng-class="{ 'signup-messages-valid':spk.clientDetails.addressone.$valid}" class="signup-messages-hide-valid">Cool, looks good!</p>
+            </ng-messages>
+        </fieldset>
+        <!-- Address Two -->
+        <fieldset class="signup-field">
+            <input type="text" name="addresstwo" data-ng-model="spk.clientdetails.addresstwo" data-prevent-enter data-ng-keyup="cancel($event)" data-input-field-display data-ng-minlength="2" data-ng-maxlength="75" class="signup-input">
+            <label for="address-two" class="signup-label">
+                <span class="signup-label-text">Street Address 2</span>
+            </label>
+            <ng-messages for="spk.clientDetails.addresstwo.$error" class="signup-messages">
+                <ng-message when="required" class="signup-messages-required">Required</ng-message>
+                <ng-message when="minlength" class="signup-messages-generic">Too short, this needs to be at least two(2) characters long.</ng-message>
+                <ng-message when="maxlength" class="signup-messages-generic">Too long, this needs to be less than fifty(50) characters long.</ng-message>
+            </ng-messages>
+        </fieldset>
+        <!-- City -->
+        <fieldset class="signup-field">
+            <input type="text" name="city" data-ng-model="spk.clientdetails.city" data-prevent-enter data-ng-keyup="cancel($event)" data-input-field-display data-ng-minlength="2" data-ng-maxlength="75" data-required class="signup-input">
+            <label for="city" class="signup-label">
+                <span class="signup-label-text">City</span>
+            </label>
+            <ng-messages for="spk.clientDetails.city.$error" class="signup-messages">
+                <ng-message when="required" class="signup-messages-required">Required</ng-message>
+                <ng-message when="minlength" class="signup-messages-generic">Too short, this needs to be at least two(2) characters long.</ng-message>
+                <ng-message when="maxlength" class="signup-messages-generic">Too long, this needs to be less than fifty(50) characters long.</ng-message>
+                <p data-ng-class="{ 'signup-messages-valid':spk.clientDetails.city.$valid}" class="signup-messages-hide-valid">Cool, looks good!</p>
+            </ng-messages>
+        </fieldset>
+        <!-- State -->
+        <fieldset class="signup-field-small">
+            <select name="state" data-ng-model="spk.clientdetails.state" data-ng-keyup="cancel($event)" data-ng-options="state.name for state in spk.states" data-required class="signup-select">
+                <option value="" ng-if="false"></option>
+            </select>
+                <ng-messages for="spk.clientDetails.state.$error" class="signup-messages">
+                <ng-message when="required" class="signup-messages-required">Required</ng-message>
+                <p data-ng-class="{ 'signup-messages-valid':spk.clientDetails.state.$valid}" class="signup-messages-hide-valid">Cool, looks good!</p>
+            </ng-messages>
+        </fieldset>
+        <!-- Zip Code -->
+        <fieldset class="signup-field-small">
+            <input type="text" name="zip" data-ng-model="spk.clientdetails.zip" data-prevent-enter data-ng-keyup="cancel($event)" data-input-field-display data-ng-minlength="5" data-ng-maxlength="10" data-required class="signup-input">
+            <label for="zip" class="signup-label">
+                <span class="signup-label-text">Zip Code</span>
+            </label>
+            <ng-messages for="spk.clientDetails.zip.$error" class="signup-messages">
+                <ng-message when="required" class="signup-messages-required">Required</ng-message>
+                <ng-message when="minlength" class="signup-messages-generic">Too short, this needs to be at least five(5) characters long.</ng-message>
+                <ng-message when="maxlength" class="signup-messages-generic">Too long, this needs to be less than ten(10) characters long.</ng-message>
+                <p data-ng-class="{ 'signup-messages-valid':spk.clientDetails.zip.$valid}" class="signup-messages-hide-valid">Cool, looks good!</p>
+            </ng-messages>
+        </fieldset>
+        <!-- Services Offered -->
+        <h4 class="signup-services-header">Company Services</h4>
+        <p class="signup-services-text">Choose as many of the following as fit your company:</p>
+        <fieldset data-ng-form="cdServices"  class="signup-services">
+            <p data-ng-click="spk.selectMe()" class="signup-services-select">Select All</p>
+            <p data-ng-click="spk.unSelectMe()" class="signup-services-select">Select None</p>
+            <div data-ng-repeat="service in spk.services" class="signup-services-item">
+                <input type="checkbox" name="{{service.$id}}" data-ng-model="spk.clientdetails.services[service.$id]" data-ng-true-value=" '{{service.service}}' " id="signup-checkbox" class="signup-services-item-checkbox">
+                <label for="signup-checkbox" class="signup-services-item-label">{{service.service}}</label>
+            </div>
+        </fieldset>
+        <!-- Submit Button -->
+        <div class="signup-buttons">
+             <button type="submit" data-ng-class="{ 'signup-submit-disabled':spk.clientDetails.cdServices.$pristine, 'signup-submit-success':spk.success}" data-button-wait class="signup-submit" data-ng-click="switch= 'done' ">All Done: Submit Company Details</button>
+        </div>
+    <!-- <pre>Services JSON = {{spk.clientDetails.cdServices | json}}</pre> -->
+    </form>

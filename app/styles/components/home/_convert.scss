@@ -1,0 +1,26 @@
+.home {
+    &-convert {
+        @include span(12 wide of 12 no-gutters);
+        padding: rhythm(1, 16px) span(1 of 12);
+        margin-bottom: rhythm(1, 16px);
+        background: setcolor(white);
+        @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+            margin-bottom: 0px;
+            padding: rhythm(1, 16px) span(4 of 24);
+        }
+        &-item {
+            @extend %button-basics;
+            @extend %button-lifter;
+            @include expando-hover(green, lighter, .25);
+            @include span(12 wide of 12 no-gutters);
+            padding: rhythm(1, 16px);
+            &:first-of-type {
+                margin-bottom: rhythm(1, 16px);
+            }
+            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                @include span(12 of 24);
+                margin-bottom: 0px;
+            }
+        }
+    }
+}

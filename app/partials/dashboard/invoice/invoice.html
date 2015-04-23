@@ -1,0 +1,40 @@
+<span data-ng-switch="switch" data-ng-controller="DashInvoiceCtrl as spk">
+
+    <div class="invoice-action">
+        <p data-ng-click="switch='create' " data-ng-class="{'invoice-action-add-active':switch=='create'}" class="invoice-action-add">Create An Invoice</p>
+        <p data-ng-click="switch='data' " data-ng-class="{'invoice-action-view-active':switch=='create'}" class="invoice-action-view">View Invoice List</p>
+    </div>
+
+    <div data-ng-switch-default="data" class="invoice-data dash-create-animate">
+        <h2>Invoice Data Placeholder</h2>
+    </div>
+
+    <div data-ng-switch-when="create" class="invoice-create dash-create-animate">
+
+        <section class="invoice-create-data">
+            <h3 class="invoice-create-data-header">Let's Create a New Invoice:</h3>
+            <form name="spk.newinvoice" novalidate data-ng-model-options="{updateOn: 'blur'}" data-ng-submit="spk.createNewInvoice(spk.newinvoice)" class="invoice-form">
+
+            <!-- Clients -->
+            <fieldset class="invoice-form-field">
+                <select name="client" data-ng-model="spk.newinvoice.client" data-ng-keyup="cancel($event)" data-ng-options="client.fullname for client in spk.clients" data-required class="invoice-form-select">
+                    <option value="" ng-if="false"></option>
+                </select>
+                <ng-messages for="spk.newinvoice.client.$error" class="invoice-form-messages">
+                    <ng-message when="required" class="invoice-form-messages-required">Required</ng-message>
+                    <p data-ng-class="{ 'invoice-form-messages-valid':spk.newinvoice.client.$valid}" class="invoice-form-messages-hide-valid">Cool, looks good!</p>
+                </ng-messages>
+            </fieldset>
+        </section>
+
+        <section class="invoice-create-preview">
+            <h3 class="invoice-create-preview-header">Invoice Preview:</h3>
+            <div class="invoice-create-preview-content">
+                <p>{{spk.company}}</p>
+                <p>{{spk.addressone}} {{spk.addresstwo}}</p>
+                <p>{{spk.city}}, {{spk.state}}  {{spk.zip}}</p>
+            </div>
+
+        </section>
+    </div>
+</span>

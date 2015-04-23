@@ -1,0 +1,17 @@
+<nav class="dash-nav">
+    <div data-ng-click="nav='home' " data-ng-class="{'dash-nav-item-active':nav=='home' }" class="dash-nav-item"><span class="dash-nav-item-home"></span>Home</div>
+    <div data-ng-click="nav='clients' " data-ng-class="{'dash-nav-item-active':nav=='clients' }" class="dash-nav-item"><span class="dash-nav-item-clients"></span>Clients</div>
+    <div data-ng-click="nav='jobs' " data-ng-class="{'dash-nav-item-active':nav=='jobs' }" class="dash-nav-item"><span class="dash-nav-item-jobs"></span>Jobs</div>
+    <div data-ng-click="nav='invoice' " data-ng-class="{'dash-nav-item-active':nav=='invoice' }" class="dash-nav-item"><span class="dash-nav-item-invoice"></span>Invoices</div>
+    <div data-ng-click="nav='settings' " data-ng-class="{'dash-nav-item-active':nav=='settings' }" class="dash-nav-item"><span class="dash-nav-item-settings"></span>Settings</div>
+    <div data-ng-click="nav='help' " data-ng-class="{'dash-nav-item-active':nav=='help' }" class="dash-nav-item"><span class="dash-nav-item-help"></span>Help</div>
+</nav>
+<h2 class="dash-header">{{spk.name}}</h2>
+<section data-ng-switch="nav" class="dash">
+    <div data-dash-view data-ng-switch-default="home" class="dash-home dash-animate"></div>
+    <div data-dash-view data-ng-switch-when="clients" class="clients dash-animate"></div>
+    <div data-dash-view data-ng-switch-when="jobs" class="jobs dash-animate"></div>
+    <div data-dash-view data-ng-switch-when="invoice" class="invoice dash-animate"></div>
+    <div data-dash-view data-ng-switch-when="settings" class="settings dash-animate"></div>
+    <div data-dash-view data-ng-switch-when="help" class="help dash-animate"></div>
+</section>

@@ -1,0 +1,20 @@
+@include font-face('Roboto-Thin', font-files(
+    'Roboto-Thin.woff',woff,
+    'Roboto-Thin.ttf', ttf,
+    'Roboto-Thin.svg', svg),
+    'Roboto-Thin.eot');
+    $Roboto-Thin: 'Roboto-Thin', Helvetica, Arial, sans-serif;
+
+@include font-face('Roboto-Light', font-files(
+    'Roboto-Light.woff',woff,
+    'Roboto-Light.ttf', ttf,
+    'Roboto-Light.svg', svg),
+    'Roboto-Light.eot');
+    $Roboto-Light: 'Roboto-Light', Helvetica, Arial, sans-serif;
+
+@include font-face('Roboto-Bold', font-files(
+    'Roboto-Bold.woff',woff,
+    'Roboto-Bold.ttf', ttf,
+    'Roboto-Bold.svg', svg),
+    'Roboto-Bold.eot');
+    $Roboto-Bold: 'Roboto-Bold', Helvetica, Arial, sans-serif;

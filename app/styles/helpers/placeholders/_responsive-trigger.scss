@@ -1,0 +1,18 @@
+%responsive-trigger {
+    &::before {
+        content: "phone";
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: -1000px;
+        @include susy-breakpoint($bp-medium, $columns-medium) {
+            content: "tablet";
+        }
+        @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+            content: "laptop";
+        }
+        @include susy-breakpoint($bp-large, $columns-large) {
+            content: "computer";
+        }
+    }
+}

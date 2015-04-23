@@ -1,0 +1,56 @@
+.invoice {
+    @extend %dash-view;
+    &-action {
+        @extend %dash-action;
+        &-add {
+            @extend %dash-action-add-button;
+            &-active {
+                @extend %dash-action-add-active-button;
+            }
+        }
+        &-view {
+            @extend %dash-action-view-button;
+            &-active {
+                @extend %dash-action-view-active-button;
+            }
+        }
+    }
+    &-data {
+        @extend %dash-data;
+    }
+    &-create {
+        @include span(12 wide of 12 no-gutters);
+        &-header {
+            @extend %dash-create-header;
+        }
+        &-data {
+            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                @include span(12 of 24)
+            }
+            &-header {
+                @extend %dash-create-header;
+                margin: 0 0 rhythm(1, 16px) 0;
+            }
+        }
+        &-preview {
+            min-height: 250px;
+            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                @include span(12 of 24)
+            }
+            &-header {
+                @extend %dash-create-header;
+                margin: 0 0 rhythm(1, 16px) 0;
+            }
+            &-content {
+                @extend %t-small;
+                @include span(12 wide of 12 no-gutters);
+                padding: rhythm(1, 16px) span(1 of 24);
+                border: .1em solid rgba(setcolor(teal, darker), .5);
+                border-radius: .1em;
+            }
+        }
+    }
+    &-form {
+        @include span(12 wide of 12 no-gutters);
+    }
+}

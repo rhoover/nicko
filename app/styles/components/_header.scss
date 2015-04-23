@@ -1,0 +1,22 @@
+.header {
+    position: fixed;
+    width: 100%;
+    z-index: z-layer(tabletop);
+    background-color: transparent;
+    @include background-image(linear-gradient(rgba(setcolor(green), 1), rgba(setcolor(green, light), .35)  ));
+    border-bottom: .1em solid rgba(setcolor(green, darker), .15);
+    @include box-shadow(0px 1px 5px 3px rgba(setcolor(green), .15));
+
+/////////////////////////////////////////////////
+
+    &-text {
+        @extend %t-large;
+        @include rhythm-margins(.25, .25, 21px);
+        padding-left: span(1 of 12);
+        color: setcolor(white);
+        text-shadow: rgba(setcolor(green, darker), .4) 1px 1px 0px;
+        @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+            padding-left: span(1 of 24);
+        }
+    }
+}

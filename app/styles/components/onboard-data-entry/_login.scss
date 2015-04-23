@@ -1,0 +1,82 @@
+.login {
+
+    @extend %data-entry;
+
+/////////////////////////////////////////////////
+
+    &-header {
+        @extend %data-entry-header;
+    }
+
+/////////////////////////////////////////////////
+
+    &-field {
+        @extend %data-entry-fieldset;
+    }
+
+/////////////////////////////////////////////////
+
+    &-input {
+        @extend %data-entry-input;
+        &:focus {
+            & ~ .login-label { //pay attention to this!!
+                color: setcolor(teal);
+                @extend %animate-helper;
+                @include translate3d(50%, 0, 0);
+                @include transition-duration(1.75s);
+                @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                    @include translate3d(100%, 0, 0);
+                }
+            }
+        }
+    }
+
+/////////////////////////////////////////////////
+
+    &-label {
+        @extend %data-entry-label;
+        &.filled {
+            @extend %data-entry-label-filled;
+        }
+        &-text {
+            @extend %data-entry-label-text;
+        }
+    }
+
+/////////////////////////////////////////////////
+
+    &-messages {
+        @extend %data-entry-messages;
+        &-required {
+            @extend %data-entry-messages-required;
+        }
+        &-generic {
+            @extend %data-entry-messages-generic;
+        }
+        &-hide-valid {
+            @extend %data-entry-messages-hide-valid;
+        }
+        &-valid {
+            @extend %data-entry-messages-valid;
+        }
+    }
+
+/////////////////////////////////////////////////
+
+    &-buttons {
+        overflow: hidden;
+    }
+
+/////////////////////////////////////////////////
+
+    &-submit {
+        @extend %data-entry-submit;
+        &-disabled {
+            @extend %data-entry-submit-disabled;
+        }
+        &-success {
+            @extend %data-entry-submit-success;
+        }
+    }
+}
+

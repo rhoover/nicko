@@ -1,0 +1,6 @@
+@mixin expando-hover($color, $colormode, $opacity) {
+    @extend %expando-hover;
+    &:after {
+        background-color: rgba(setcolor($color, $colormode), $opacity);
+    }
+}

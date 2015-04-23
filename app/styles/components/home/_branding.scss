@@ -1,0 +1,38 @@
+.home {
+    &-branding {
+        @include span(12 wide of 12 no-gutters);
+        &-what {
+            @extend %home-branding;
+            @include home-branding-background(green, greener, .05);
+            &-hassle {
+                @extend %home-branding-section;
+                &:before {
+                    @extend .icons-hassle;
+                }
+            }
+            &-who {
+                @extend %home-branding-section;
+                &:before {
+                    @extend .icons-who;
+                }
+            }
+            &-solve {
+                @extend %home-branding-section;
+                &:before {
+                    @extend .icons-solve;
+                }
+            }
+        }
+        &-why {
+            @extend %home-branding;
+            @include home-branding-background(teal, lighter, .05);
+        }
+        &-how {
+            @extend %home-branding;
+            @include home-branding-background(orange, lighter, .05);
+        }
+    }
+    &-bold {
+        font-family: Roboto-Bold;
+    }
+}

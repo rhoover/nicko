@@ -1,0 +1,237 @@
+.jobs {
+
+    @extend %dash-view;
+
+/////////////////////////////////////////////////
+
+    &-action {
+        @extend %dash-action;
+        &-add {
+            @extend %dash-action-add-button;
+            &-active {
+                @extend %dash-action-add-active-button;
+            }
+        }
+        &-view {
+            @extend %dash-action-view-button;
+            &-active {
+                @extend %dash-action-view-active-button;
+            }
+        }
+    }
+
+/////////////////////////////////////////////////
+
+    &-data {
+        @extend %dash-data;
+        &-header {
+            @extend %dash-create-header;
+            margin-top: 0px;
+            border-bottom: 1px solid rgba(setcolor(green), .35);
+        }
+        &-action {
+            @extend %dash-content-action;
+            &-search {
+                padding: 0  span(1 of 12);
+                @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                    @include span(8 of 24);
+                    padding: 0;
+                }
+                &-box {
+                    @extend %data-entry-input;
+                    &:focus {
+                        & ~ .jobs-data-action-search-label { //pay attention to this!!
+                            color: setcolor(teal);
+                            @extend %animate-helper;
+                            @include translate3d(50%, 0, 0);
+                            @include transition-duration(1.75s);
+                            @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                                @include translate3d(100%, 0, 0);
+                            }
+                        }
+                    }
+                }
+                &-label {
+                    @extend %data-entry-label;
+                    &.filled {
+                        @extend %data-entry-label-filled;
+                    }
+                    &-text {
+                        @extend %data-entry-label-text;
+                    }
+                }
+            }
+        }
+        &-content {
+            @extend %dash-content;
+            &-item {
+                @extend %dash-content-item;
+                &-sub {
+                    @extend %dash-content-item-sub;
+                    &-name {
+                        @extend %dash-content-item-sub-type;
+                        &:before {
+                            content: "Primary Contact";
+                        }
+                    }
+                    &-date {
+                        @extend %dash-content-item-sub-type;
+                        &:before {
+                            content: "Job Date";
+                        }
+                    }
+                    &-price {
+                        @extend %dash-content-item-sub-type;
+                        &:before {
+                            content: "Quoted Price";
+                        }
+                    }
+                    &-service {
+                        @extend %dash-content-item-sub-type;
+                        &:before {
+                            content: "Job Type";
+                        }
+                    }
+                    &-location {
+                        @extend %dash-content-item-sub-type;
+                        &:before {
+                            content: "Job Location";
+                        }
+                    }
+                    &-note {
+                        @extend %dash-content-item-sub-type;
+                        &:before {
+                            content: "Job Notes";
+                        }
+                    }
+                    &-contact {
+                        @extend %dash-content-item-sub-type;
+                        &:before {
+                            content: "Contact Information";
+                        }
+                    }
+                    &-frequency {
+                        @extend %dash-content-item-sub-type;
+                        &:before {
+                            content: "Job Frequency";
+                        }
+                    }
+                }
+                &-action {
+                    @extend %dash-content-item-action;
+                    &-edit {
+                        @extend %dash-content-item-action-type;
+                        &> p:before {
+                            content: "";
+                            float: left;
+                            width: 16px;
+                            height: 16px;
+                            margin: 0 5px 0 0;
+                            opacity: .5;
+                            @extend .icons-edit-small;
+                        }
+                    }
+                    &-delete {
+                        @extend %dash-content-item-action-type;
+                        float: right;
+                        &> p:before {
+                            content: "";
+                            float: left;
+                            width: 16px;
+                            height: 16px;
+                            margin: 0 5px 0 0;
+                            opacity: .5;
+                            @extend .icons-delete-small;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+/////////////////////////////////////////////////
+
+    &-create {
+        @extend %dash-create;
+        &-header {
+            @extend %dash-create-header;
+            margin-bottom: rhythm(1, 16px);
+        }
+    }
+
+/////////////////////////////////////////////////
+
+    &-form {
+        @extend %dash-entry;
+        &-field {
+            @extend %dash-entry-fieldset;
+            &-small {
+                @extend %dash-entry-fieldset-small;
+            }
+        }
+
+        &-input {
+            @extend %data-entry-input;
+            &:focus {
+                & ~ .jobs-form-label { //pay attention to this!!
+                    color: setcolor(teal);
+                    @extend %animate-helper;
+                    @include translate3d(50%, 0, 0);
+                    @include transition-duration(1.75s);
+                    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+                        @include translate3d(100%, 0, 0);
+                    }
+                }
+            }
+        }
+
+        &-label {
+            @extend %data-entry-label;
+            &.filled {
+                @extend %data-entry-label-filled;
+            }
+            &-text {
+                @extend %data-entry-label-text;
+            }
+        }
+
+        &-messages {
+            @extend %data-entry-messages;
+            &-required {
+                @extend %data-entry-messages-required;
+            }
+            &-generic {
+                @extend %data-entry-messages-generic;
+            }
+            &-hide-valid {
+                @extend %data-entry-messages-hide-valid;
+            }
+            &-valid {
+                @extend %data-entry-messages-valid;
+            }
+        }
+
+        &-select {
+            @extend %button-basics;
+            @extend %button-lifter;
+            @extend %no-focus-outline;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            &:hover {
+                @include box-shadow(0px 0px 4px 0px rgba(setcolor(teal), .5));
+            }
+        }
+
+        &-submit {
+            @extend %data-entry-submit;
+            margin-bottom: rhythm(2, 16px);
+            &-disabled {
+                @extend %data-entry-submit-disabled;
+                margin-bottom: rhythm(2, 16px);
+            }
+        }
+
+    } //end -form
+} //end -jobs

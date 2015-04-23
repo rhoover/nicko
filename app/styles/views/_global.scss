@@ -1,0 +1,23 @@
+html {
+    @extend %font-helpers;
+    font-family: $Roboto-Light;
+    color: setcolor(black);
+    height: 100%;
+}
+
+.body {
+    @include container;
+    height: 100%;
+    background-color: setcolor(white);
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+.view {
+    @include span(12 wide of 12 no-gutters);
+    // @include transition-timing-function(cubic-bezier(0.250, 0.460, 0.450, 0.940) );
+    // @include transition-duration(.75s);
+    background: setcolor(white);
+}

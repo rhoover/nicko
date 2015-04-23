@@ -1,0 +1,34 @@
+%dash-entry {
+    @include span(12 wide of 12 no-gutters);
+    padding:  0 0 rhythm(8, 16px);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        // padding: rhythm(1, 16px) 0 0;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+%dash-entry-fieldset {
+    @include span(12 of 12 no-gutters);
+    position: relative;
+    margin-bottom: rhythm(1, 16px);
+    padding: 0 span(1 of 12);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        padding: 0 span(1 of 24);
+        &:last-of-type {
+            margin-bottom: rhythm(3, 16px);
+        }
+    }
+}
+
+
+%dash-entry-fieldset-small {
+    position: relative;
+    @include span(12 of 12 no-gutters);
+    margin-bottom: rhythm(1, 16px);
+    padding: 0 span(1 of 12);
+    @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
+        @include span(12 of 24 no-gutters);
+        padding: 0 span(1 of 24);
+    }
+}
