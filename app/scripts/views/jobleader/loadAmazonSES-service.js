@@ -5,21 +5,23 @@
         .module('nickoApp.views')
         .service('loadAmazonSES', loadAmazonSES);
 
-    function loadAmazonSES($window, $q) {
+    function loadAmazonSES($q) {
 
         var deferred = $q.defer();
 
         function writeScript() {
             var scriptTag = document.createElement('script');
-            scriptTag.src = 'libs/aws/aws-sdk-ses.js?callback=initSES';
+            scriptTag.src = 'http://www.nickoinc.com/libs/aws-sdk-ses-min.js';
             angular.element(document.body).append(scriptTag);
         }
 
-        $window.initSES = function () {
-            deferred.resolve();
-        };
+        // $window.initSES = function () {
+        //     deferred.resolve();
+        // };
 
         writeScript();
+
+        window.AWS = deferred.resolve;
 
         return deferred.promise;
     }

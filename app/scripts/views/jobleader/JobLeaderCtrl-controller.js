@@ -24,11 +24,14 @@
         }
 
         function amazonSES() {
+            if (window.AWS) {
+                console.log('AWS We Have Lift Off');
+            };
             // loadAmazonSES.writeScript()
-            loadAmazonSES
-                .then(function (po) {
-                    console.log(po);
-                });
+            // loadSES.initSES
+            //     .then(function () {
+            //         console.log('promise');
+            //     });
                 // if (window.AWS) {
                 //     console.log('Effing A Cotton');
                 // } else {
