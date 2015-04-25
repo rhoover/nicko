@@ -1,4 +1,10 @@
 <section class="field">
-    <div data-button-click="beginJob()" class="field-button-begin">Begin: Start Job</div>
-    <div data-button-click="endJob()" class="field-button-end">End: Job Finished</div>
+    <a href="" class="field-list" ng-repeat="job in spk.jobList">
+        <p>{{job.client.fullname}}</p>
+        <p>{{job.client.street}}</p>
+        <p>{{job.service.service}}</p>
+        <p>{{job.note}}</p>
+    </a>
+<!--     <div data-button-click="beginJob()" class="field-button-begin">Begin: Start Job</div>
+    <div data-button-click="endJob()" class="field-button-end">End: Job Finished</div> -->
 </section>

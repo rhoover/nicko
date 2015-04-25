@@ -5,7 +5,7 @@
         .module('nickoApp.views')
         .factory('roleTest', roleTest);
 
-    function roleTest($firebaseObject, fbUsersUrl) {
+    function roleTest($firebaseObject, fbUsersUrl, crewLeaderStore) {
 
         var factoryAPI = {
             firebaseObjectQuery: firebaseObjectQuery
@@ -20,6 +20,12 @@
 
             return userObject.$loaded()
                 .then(function () {
+                    if (userObject.boss) {
+                        crewLeaderStore.setCache(userObject.boss);
+                    }
+                    return userObject;
+                })
+                .then(function (userObject) {
                     //YAT yet another ternary, these things are fucking great!!!!
                     return userObject.owner === true ? 'dashboard' : 'jobleader';
                 });

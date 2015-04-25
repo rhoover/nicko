@@ -5,14 +5,23 @@
         .module('nickoApp.views')
         .controller('JobLeaderCtrl', JobLeaderCtrl);
 
-    function JobLeaderCtrl($window, $scope, loadAmazonSES) {
+    function JobLeaderCtrl($window, $scope, jobsListField, dashDataSortFilter, loadAmazonSES) {
         /*jshint validthis: true */
         var spk = this;
 
+        jobs();
         buttonClick();
         amazonSES();
 
         ////////////////
+
+        function jobs() {
+            jobsListField.fetchJobs()
+                .then(function (jobsListData) {
+                    var sortedDsc = dashDataSortFilter.sortDsc(jobsListData);
+                    spk.jobList = sortedDsc;
+                });
+        }
 
         function buttonClick() {
             $scope.beginJob = function () {
@@ -20,7 +29,7 @@
             };
             $scope.endJob = function () {
                 alert('Nicely Done! The mothership and the customer have been notified!');
-            }
+            };
         }
 
         function amazonSES() {

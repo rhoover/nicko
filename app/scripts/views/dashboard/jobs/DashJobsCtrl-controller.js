@@ -62,7 +62,7 @@
                 .then(function (jobsListData) {
                     var sortedDsc = dashDataSortFilter.sortDsc(jobsListData);
                     spk.jobs = sortedDsc;
-                })
+                });
         }
 
         function createJob() {
