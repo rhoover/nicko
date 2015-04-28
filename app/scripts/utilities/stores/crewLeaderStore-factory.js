@@ -9,20 +9,19 @@
     function crewLeaderStore($cacheFactory) {
 
         var factoryAPI = {
-            setCache: setCache,
-            fetchCache: fetchCache
+            setBossCache: setBossCache,
+            fetchBossCache: fetchBossCache
         };
         return factoryAPI;
 
         ////////////////
 
-        function setCache(userData) {
-            $cacheFactory('userObject').put('userObjectData', userData);
+        function setBossCache(userData) {
+            $cacheFactory('bossObject').put('bossObjectData', userData);
         }
 
-        function fetchCache() {
-            var crewLeaderData = $cacheFactory.get('userObject').get('userObjectData');
-            return crewLeaderData;
+        function fetchBossCache() {
+            return $cacheFactory.get('bossObject').get('bossObjectData');
         }
     }
 })();

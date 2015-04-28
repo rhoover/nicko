@@ -51,6 +51,12 @@
                     controller: 'JobLeaderCtrl',
                     controllerAs: 'spk'
                 })
+                .when('/jobleader/:id', {
+                    templateUrl: 'partials/jobleader/magicbuttons.html',
+                    title: 'Nicko Job Leader',
+                    controller: 'JobLeaderButtonsCtrl',
+                    controllerAs: 'spk'
+                })
                 .otherwise('/', {
                     title: 'Nicko Home'
                 });

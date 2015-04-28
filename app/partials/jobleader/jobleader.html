@@ -1,9 +1,9 @@
 <section class="field">
-    <a href="" class="field-list" ng-repeat="job in spk.jobList">
-        <p>{{job.client.fullname}}</p>
-        <p>{{job.client.street}}</p>
-        <p>{{job.service.service}}</p>
-        <p>{{job.note}}</p>
+    <a href="jobleader/{{job.$id}}" class="field-list" ng-repeat="job in spk.jobList">
+        <p class="field-list-name">{{::job.client.fullname}}</p>
+        <p class="field-list-street">{{::job.client.street}}</p>
+        <p class="field-list-location">{{::job.client.city}}, {{::job.client.state.abbreviation}}</p>
+        <p class="field-list-job">{{::job.service.service}}:  <span class="field-list-job-note">{{::job.note}}</span></p>
     </a>
 <!--     <div data-button-click="beginJob()" class="field-button-begin">Begin: Start Job</div>
     <div data-button-click="endJob()" class="field-button-end">End: Job Finished</div> -->

@@ -3,7 +3,7 @@
         @extend %responsive-trigger;
         @include span(12 wide of 12 no-gutters);
         padding: 0 span(1 of 12);
-        background-color: setcolor(white);
+        // background: setcolor(white);
         @include susy-breakpoint($bp-medium-large, $columns-medium-large) {
             margin-bottom: rhythm(2, 16px);
             padding: 0;
@@ -14,14 +14,13 @@
             margin-bottom: rhythm(1, 16px);
             font-family: $Roboto-Bold;
             @extend %t-large;
-            color: setcolor(black);
+            color: setcolor(white);
             @include susy-breakpoint($bp-medium, $columns-medium) {
                 margin-top: rhythm(3, 16px);
                 margin-bottom: 0px;
                 @include type-scale(xlarge); //can't @extend inside a media-query
                 font-size: 3.5em;
                 margin-top: rhythm(1.5, 16px);
-                color: setcolor(white);
                 text-shadow: rgba(setcolor(green, darker), 1) 1px 1px 0px;
             }
         }

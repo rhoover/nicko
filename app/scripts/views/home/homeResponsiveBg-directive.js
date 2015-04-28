@@ -5,23 +5,23 @@
         .module('nickoApp.views')
         .directive('homeResponsiveBg', homeResponsiveBg);
 
-    function homeResponsiveBg ($location, $timeout) {
+    function homeResponsiveBg ($timeout) {
 
-        var directiveDefObject = {
+        var ddo = {
             link: link,
             restrict: 'A',
             scope: {}
         };
-        return directiveDefObject;
+        return ddo;
 
         ////////////////
 
         function link(scope, element, attrs) {
 
-            var bodyResult = getComputedStyle(element[0], ':before').content;
+            var bodyResult = getComputedStyle(element[0], '::after').content;
             var elementClassName = element[0].className;
 
-            bodyResult = bodyResult.replace(/"/g,''); //Because Firefox keeps quotes from content
+            bodyResult = bodyResult.replace(/["']{1}/gi,"");
 
             switch (bodyResult) {
                 case 'phone' :

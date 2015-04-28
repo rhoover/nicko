@@ -1,0 +1,38 @@
+// Courtesy:   http://sassmeister.com/gist/ed7c9a37cdc7d103c4d1
+
+@function contains($list, $values...) {
+  @each $value in $values {
+    @if type-of(index($list, $value)) != "number" {
+      @return false;
+    }
+  }
+
+  @return true;
+}
+
+@function is-length($value) {
+  @return type-of($value) != "null" and (str-slice($value + "", 1, 4) == "calc"
+       or index(auto inherit initial 0, $value)
+       or (type-of($value) == "number" and not(unitless($value))));
+}
+
+@function is-size($value) {
+  @return is-length($value)
+          or contains("fill" "fit-content" "min-content" "max-content", $value);
+}
+
+@mixin size ($width, $height:$width) {
+  @if is-size($width) {
+    width: $width;
+  } @else {
+    @warn "`#{$width}` is not a valid length for the `$width` parameter in the `size` mixin.";
+  }
+
+  @if is-size($height) {
+    height: $height;
+  } @else {
+    @warn "`#{$height}` is not a valid length for the `$height` parameter in the `size` mixin.";
+  }
+}
+
+  // @include size (123px, 456em);

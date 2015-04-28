@@ -6,7 +6,7 @@
         .factory('jobsListField', jobsListField);
 
     /* @ngInject */
-    function jobsListField($firebaseAuth, $firebaseArray, fbRootUrl, crewLeaderStore) {
+    function jobsListField($firebaseAuth, $firebaseArray, $cacheFactory, fbRootUrl, crewLeaderStore) {
 
         var factoryAPI = {
             fetchJobs: fetchJobs
@@ -16,8 +16,8 @@
         ////////////////
 
         function fetchJobs() {
-            var boss = crewLeaderStore.fetchCache();
-            console.log(fbRootUrl + 'userJobs' + '/' + boss);
+            //cache set by roleTest-factory
+            var boss = crewLeaderStore.fetchBossCache();
             var jobsRef = new Firebase(fbRootUrl + '/userJobs' + '/' + boss);
             var jobsArray = $firebaseArray(jobsRef);
 
