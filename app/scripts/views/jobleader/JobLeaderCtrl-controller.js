@@ -5,7 +5,7 @@
         .module('nickoApp.views')
         .controller('JobLeaderCtrl', JobLeaderCtrl);
 
-    function JobLeaderCtrl(jobsListField, dashDataSortFilter, loadAmazonSES) {
+    function JobLeaderCtrl($window, jobsListField, dashDataSortFilter, loadAmazonSES) {
         /*jshint validthis: true */
         var spk = this;
 
@@ -25,7 +25,7 @@
         }
 
         function amazonSES() {
-            if (window.AWS) {
+            if ($window.AWS) {
                 console.log('AWS We Have Lift Off');
             };
         }

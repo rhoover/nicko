@@ -5,13 +5,32 @@
         .module('nickoApp.views')
         .controller('JobLeaderButtonsCtrl', JobLeaderButtonsCtrl);
 
-    function JobLeaderButtonsCtrl($scope) {
+    function JobLeaderButtonsCtrl($scope, $routeParams, crewLeaderStore) {
         /*jshint validthis: true */
         var spk = this;
 
         buttonClick();
+        job();
+        client();
 
         ////////////////
+
+        function client() {
+            var clients = crewLeaderStore.fetchJobsCache();
+            var foundClient = [];
+            angular.forEach(clients, function (dummyObject) {
+                if(dummyObject.$id === $routeParams.id) {
+                    this.push(dummyObject);
+                }
+            }, foundClient);
+            var client = foundClient.shift();
+            spk.client = client.client.fullname;
+        }
+
+        function job() {
+            var test = crewLeaderStore.fetchJobsCache();
+
+        }
 
         function buttonClick() {
             $scope.beginJob = function () {

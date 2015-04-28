@@ -17,12 +17,16 @@
 
         function fetchJobs() {
             //cache set by roleTest-factory
-            var boss = crewLeaderStore.fetchBossCache();
-            var jobsRef = new Firebase(fbRootUrl + '/userJobs' + '/' + boss);
+            var boss = crewLeaderStore.fetchUserCache();
+            var jobsRef = new Firebase(fbRootUrl + '/userJobs' + '/' + boss.boss);
             var jobsArray = $firebaseArray(jobsRef);
 
             return jobsArray.$loaded()
                 .then(function () {
+                    crewLeaderStore.setJobsCache(jobsArray);
+                    return jobsArray;
+                })
+                .then(function (jobsArray) {
                     return jobsArray;
                 })
                 .catch(function () {

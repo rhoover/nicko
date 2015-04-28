@@ -21,7 +21,7 @@
             return userObject.$loaded()
                 .then(function () {
                     if (userObject.boss) {
-                        crewLeaderStore.setBossCache(userObject.boss);
+                        crewLeaderStore.setUserCache(userObject);
                     }
                     return userObject;
                 })

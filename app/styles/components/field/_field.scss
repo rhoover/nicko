@@ -2,6 +2,10 @@
     @include span(12 wide of 12 no-gutters);
     margin-top: rhythm(4, 16px);
     padding: 0 span(1 of 12);
+    &-header {
+        @extend %dash-create-header;
+        margin: 0 0 rhythm(.75, 15px);
+    }
     &-list {
         @include span(12 wide of 12 no-gutters);
         padding: rhythm(.5, 16px) 0;
@@ -36,6 +40,7 @@
             @extend %button-basics;
             @extend %button-lifter;
             @extend %no-focus-outline;
+            @include span(12 wide of 12 no-gutters);
             margin-bottom: rhythm(3, 16px);
             &:focus {
                 background: rgba(setcolor(green), .25);
@@ -48,6 +53,7 @@
             @extend %button-basics;
             @extend %button-lifter;
             @extend %no-focus-outline;
+            @include span(12 wide of 12 no-gutters);
             &:focus {
                 background: rgba(setcolor(green), .25);
             }
