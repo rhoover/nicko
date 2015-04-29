@@ -20,19 +20,28 @@
                 <select name="client" data-ng-model="spk.newinvoice.client" data-ng-keyup="cancel($event)" data-ng-options="client.fullname for client in spk.clients" data-required class="invoice-form-select">
                     <option value="" ng-if="false"></option>
                 </select>
-                <ng-messages for="spk.newinvoice.client.$error" class="invoice-form-messages">
+<!--                 <ng-messages for="spk.newinvoice.client.$error" class="invoice-form-messages">
                     <ng-message when="required" class="invoice-form-messages-required">Required</ng-message>
                     <p data-ng-class="{ 'invoice-form-messages-valid':spk.newinvoice.client.$valid}" class="invoice-form-messages-hide-valid">Cool, looks good!</p>
-                </ng-messages>
+                </ng-messages> -->
             </fieldset>
         </section>
 
         <section class="invoice-create-preview">
             <h3 class="invoice-create-preview-header">Invoice Preview:</h3>
             <div class="invoice-create-preview-content">
+                <div  class="invoice-create-preview-content-user">
+                <p class="invoice-create-preview-content-header">Invoice From:</p>
                 <p>{{spk.company}}</p>
                 <p>{{spk.addressone}} {{spk.addresstwo}}</p>
                 <p>{{spk.city}}, {{spk.state}}  {{spk.zip}}</p>
+            </div>
+                <div  class="invoice-create-preview-content-client">
+                    <p class="invoice-create-preview-content-header">Invoice For:</p>
+                    <p>{{spk.newinvoice.client.fullname}}</p>
+                    <p>{{spk.newinvoice.client.street}}</p>
+                    <p>{{spk.newinvoice.client.city}}, {{spk.newinvoice.client.state.abbreviation}}  {{spk.newinvoice.client.zip}}</p>
+                </div>
             </div>
 
         </section>

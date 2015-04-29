@@ -4,6 +4,13 @@
     padding: 0 span(1 of 12);
     &-header {
         @extend %dash-create-header;
+        margin-bottom: rhythm(1, 16px);
+        &-buttons {
+            margin-bottom: 0;
+            text-align: center;
+            @extend %t-large;
+            border-bottom: 1px solid rgba(setcolor(green), .35);
+        }
     }
     &-content {
         @include span(12 wide of 12 no-gutters);
@@ -14,13 +21,18 @@
     }
     &-list {
         @include span(12 wide of 12 no-gutters);
-        padding: rhythm(.5, 16px) 0;
+        @extend %button-basics;
+        @extend %button-lifter;
+        // padding: rhythm(.5, 16px) 0;
         color: setcolor(black);
         text-decoration: none;
-        border-bottom: .1em solid setcolor(teal);
-        &:first-of-type {
-            border-top: .1em solid setcolor(teal);
-        }
+        border: .1em solid setcolor(teal);
+        text-align: left;
+        margin-bottom: rhythm(1, 16px);
+        // border-bottom: .1em solid setcolor(teal);
+        // &:first-of-type {
+        //     border-top: .1em solid setcolor(teal);
+        // }
         &-name{
             @extend %dash-content-item-sub-type;
             margin-bottom: rhythm(1, 16px);

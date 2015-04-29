@@ -47,10 +47,31 @@
                 padding: rhythm(1, 16px) span(1 of 24);
                 border: .1em solid rgba(setcolor(teal, darker), .5);
                 border-radius: .1em;
+                &-header {
+                    border-bottom: .1em solid rgba(setcolor(teal, darker), .5);
+                }
+                &-user {
+                    @include span(6 of 12);
+                }
+                &-client {
+                    @include span(6 of 12);
+                }
             }
         }
     }
     &-form {
         @include span(12 wide of 12 no-gutters);
+        &-select {
+            @extend %button-basics;
+            @extend %button-lifter;
+            @extend %no-focus-outline;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            &:hover {
+                @include box-shadow(0px 0px 4px 0px rgba(setcolor(teal), .5));
+            }
+        }
     }
 }
