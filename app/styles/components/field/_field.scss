@@ -4,7 +4,13 @@
     padding: 0 span(1 of 12);
     &-header {
         @extend %dash-create-header;
-        margin: 0 0 rhythm(.75, 15px);
+    }
+    &-content {
+        @include span(12 wide of 12 no-gutters);
+        margin: 0 0 rhythm(2, 16px) 0;
+        @extend %t-small;
+        text-align: center;
+        color: setcolor(black, lighter);
     }
     &-list {
         @include span(12 wide of 12 no-gutters);
@@ -15,20 +21,29 @@
         &:first-of-type {
             border-top: .1em solid setcolor(teal);
         }
-        &-name{}
+        &-name{
+            @extend %dash-content-item-sub-type;
+            margin-bottom: rhythm(1, 16px);
+            &:before {
+                content: "Customer";
+            }
+        }
         &-street {
-            @extend %t-small;
+            @extend %dash-content-item-sub-type;
             margin-bottom: 0px;
-            padding-left: span(.5 of 12);
-            color: setcolor(black, lighter);
+            &:before {
+                content: "Location";
+            }
         }
         &-location {
-            @extend %t-small;
-            padding-left: span(.5 of 12);
-            color: setcolor(black, lighter);
-            margin-bottom: rhythm(.5, 16px);
+            // @extend %dash-content-item-sub-type;
+            margin-bottom: rhythm(1, 16px);
         }
         &-job {
+            @extend %dash-content-item-sub-type;
+            &:before {
+                content: "Job";
+            }
             &-note {
                 @extend %t-small;
                 color: setcolor(black, lighter);
