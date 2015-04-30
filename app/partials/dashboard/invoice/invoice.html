@@ -32,9 +32,9 @@
             <div class="invoice-create-preview-content">
                 <div  class="invoice-create-preview-content-user">
                 <p class="invoice-create-preview-content-header">Invoice From:</p>
-                <p>{{spk.company}}</p>
-                <p>{{spk.addressone}} {{spk.addresstwo}}</p>
-                <p>{{spk.city}}, {{spk.state}}  {{spk.zip}}</p>
+                <p>{{spk.user.companyname}}</p>
+                <p>{{spk.user.addressone}} {{spk.user.addresstwo}}</p>
+                <p>{{spk.user.city}}, {{spk.user.state.abbreviation}}  {{spk.user.zip}}</p>
             </div>
                 <div  class="invoice-create-preview-content-client">
                     <p class="invoice-create-preview-content-header">Invoice For:</p>

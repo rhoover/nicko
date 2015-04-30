@@ -15,14 +15,7 @@
         ////////////////
 
         function getClientMeta() {
-            var companyData = userCompanyMetaStore.fetchCache();
-
-            spk.company = companyData.companyname;
-            spk.addressone = companyData.addressone;
-            spk.addresstwo = companyData.addresstwo;
-            spk.city = companyData.city;
-            spk.state = companyData.state.abbreviation;
-            spk.zip = companyData.zip;
+            spk.user = userCompanyMetaStore.fetchCache();
         }
 
         function getClients() {
