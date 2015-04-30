@@ -17,13 +17,21 @@
 
             <!-- Clients -->
             <fieldset class="invoice-form-field">
-                <select name="client" data-ng-model="spk.newinvoice.client" data-ng-keyup="cancel($event)" data-ng-options="client.fullname for client in spk.clients" data-ng-change="selectedClient(spk.newinvoice.client)" data-required class="invoice-form-select">
+                <select name="client" data-ng-model="spk.newinvoice.client" data-ng-keyup="cancel($event)" data-ng-options="client.fullname for client in spk.clients" data-ng-change="spk.selectedClient(spk.newinvoice.client)" data-required class="invoice-form-select">
                     <option value="" ng-if="false"></option>
                 </select>
 <!--                 <ng-messages for="spk.newinvoice.client.$error" class="invoice-form-messages">
                     <ng-message when="required" class="invoice-form-messages-required">Required</ng-message>
                     <p data-ng-class="{ 'invoice-form-messages-valid':spk.newinvoice.client.$valid}" class="invoice-form-messages-hide-valid">Cool, looks good!</p>
                 </ng-messages> -->
+            </fieldset>
+
+            <!-- Jobs -->
+            <fieldset data-ng-form="clientJobs" class="invoice-form-field">
+                <div data-ng-repeat="job in spk.jobs" class="invoice-form-item">
+                    <p>{{job.service.service}}:  {{job.date}}</p>
+                    <p>Quoted Price: ${{job.quote}}</p>
+                </div>
             </fieldset>
         </section>
 

@@ -5,9 +5,10 @@
         .module('nickoApp.views')
         .controller('DashInvoiceCtrl', DashInvoiceCtrl);
 
-    function DashInvoiceCtrl($scope, userCompanyMetaStore, clientsList, jobsList) {
+    function DashInvoiceCtrl($scope, userCompanyMetaStore, clientsList, jobsList, findJobsFilter) {
         /*jshint validthis: true */
         var spk = this;
+        spk.selectedClient = selectedClient;
 
         getClientMeta();
         getClients();
@@ -30,8 +31,7 @@
                 });
         }
 
-        //delibertly breaking hoisting pattern above so chosen client data can be passed to a function
-        $scope.selectedClient = function (chosenOne) {
+        function selectedClient(chosenOne) {
             clientJobs(chosenOne);
         }
 
@@ -39,6 +39,9 @@
             jobsList.fetchJobs()
                 .then(function (jobsData) {
                     return jobsData;
+                })
+                .then(function (jobsData) {
+                    spk.jobs = findJobsFilter.userJobs(jobsData, cO.creationMoment);
                 });
         }
     }
