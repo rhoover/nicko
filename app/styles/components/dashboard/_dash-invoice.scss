@@ -65,6 +65,7 @@
             @extend %button-basics;
             @extend %button-lifter;
             @extend %no-focus-outline;
+            @extend %t-base;
             -moz-appearance: none;
             -webkit-appearance: none;
             appearance: none;
