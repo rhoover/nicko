@@ -61,6 +61,12 @@
     }
     &-form {
         @include span(12 wide of 12 no-gutters);
+        &-field {
+            width: 100%;
+            float: left;
+            max-height: rhythm(6, 16px);
+            overflow: auto;
+        }
         &-select {
             @extend %button-basics;
             @extend %button-lifter;
@@ -70,9 +76,23 @@
             -webkit-appearance: none;
             appearance: none;
             width: 100%;
+            float: left;
             &:hover {
                 @include box-shadow(0px 0px 4px 0px rgba(setcolor(teal), .5));
             }
+        }
+        &-header {
+            width: 100%;
+            float: left;
+            border-bottom: .1em solid rgba(setcolor(green), .5);
+            margin-bottom: rhythm(1, 16px);
+        }
+        &-item {
+            position: relative;
+            @include expando-hover(green, base, .05);
+            margin-bottom: rhythm(.5, 16px);
+            border-bottom: .1em solid rgba(setcolor(green), .35);
+            cursor: pointer;
         }
     }
 }

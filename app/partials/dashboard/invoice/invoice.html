@@ -27,6 +27,7 @@
             </fieldset>
 
             <!-- Jobs -->
+            <p class="invoice-form-header">Pick One or Several Jobs:</p>
             <fieldset data-ng-form="clientJobs" class="invoice-form-field">
                 <div data-ng-repeat="job in spk.jobs" class="invoice-form-item">
                     <p>{{job.service.service}}:  {{job.date}}</p>
@@ -35,6 +36,7 @@
             </fieldset>
         </section>
 
+        <!-- Preview -->
         <section class="invoice-create-preview">
             <h3 class="invoice-create-preview-header">Invoice Preview:</h3>
             <div class="invoice-create-preview-content">
