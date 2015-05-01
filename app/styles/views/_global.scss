@@ -21,3 +21,6 @@ html {
     // @include transition-duration(.75s);
     background: setcolor(white);
 }
+.footer {
+    @include span(12 wide of 12 no-gutters);
+}

@@ -5,21 +5,16 @@
         .module('nickoApp.views')
         .controller('JobLeaderCtrl', JobLeaderCtrl);
 
-    function JobLeaderCtrl($window, jobsListField, dashDataSortFilter, loadAmazonSES) {
+    function JobLeaderCtrl($window, jobsListField, dashDataSortFilter) {
         /*jshint validthis: true */
         var spk = this;
 
         jobs();
-        // buttonClick();
         amazonSES();
 
         ////////////////
 
         function amazonSES() {
-            // loadAmazonSES.writeScriptTag()
-            //     .then(function (promiseThing) {
-            //         console.log('PromiseThing:  ', promiseThing);
-            //     });
             if (!$window.AWS) {
                 console.log('Why No AWS');
             } else {

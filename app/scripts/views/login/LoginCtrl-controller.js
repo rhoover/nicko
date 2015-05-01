@@ -5,7 +5,7 @@
         .module('nickoApp.views')
         .controller('LoginCtrl', LoginCtrl);
 
-    function LoginCtrl($scope, $location, fbRootUrl, logIn, loadAmazonSES) {
+    function LoginCtrl($scope, $location, fbRootUrl, logIn) {
         /*jshint validthis: true */
         var spk = this;
 
