@@ -5,7 +5,7 @@
         .module('nickoApp.views')
         .service('loadAmazonSES', loadAmazonSES);
 
-    function loadAmazonSES($q) {
+    function loadAmazonSES($q, $window) {
 
         var deferred = $q.defer();
 
@@ -21,7 +21,7 @@
 
         writeScript();
 
-        window.AWS = deferred.resolve;
+        $window.AWS = deferred.resolve;
 
         return deferred.promise;
     }

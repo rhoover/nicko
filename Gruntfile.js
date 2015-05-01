@@ -188,7 +188,7 @@ module.exports = function (grunt) {
                     dest: '<%= nickoApp.build %>',
                     src: [
                         '*.{ico,png,txt}',
-                        // '.htaccess',
+                        '.htaccess',
                         '*.html',
                         'styles/fonts/*',
                         'images/*.png',

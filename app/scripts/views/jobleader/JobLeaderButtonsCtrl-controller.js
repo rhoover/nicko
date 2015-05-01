@@ -24,7 +24,6 @@
                 }
             }, foundClient);
             var client = foundClient.shift();
-            console.log(client);
             spk.client = client.client.fullname;
             spk.service = client.service.service;
             spk.date = client.date;
