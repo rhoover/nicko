@@ -5,15 +5,15 @@
         .module('nickoApp.views')
         .controller('LoginCtrl', LoginCtrl);
 
-    function LoginCtrl($scope, $location, fbRootUrl, logIn) {
+    function LoginCtrl($scope, $location, fbRootUrl, logIn, loadAmazonSES) {
         /*jshint validthis: true */
         var spk = this;
 
-        goForthAndBind();
+        logMeIn();
 
         ////////////////
 
-        function goForthAndBind() {
+        function logMeIn() {
             spk.success = false;
 
             // destroy existing auth objects for easy testing, but keep in mind for edge

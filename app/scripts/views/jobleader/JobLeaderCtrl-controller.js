@@ -15,6 +15,18 @@
 
         ////////////////
 
+        function amazonSES() {
+            // loadAmazonSES.writeScriptTag()
+            //     .then(function (promiseThing) {
+            //         console.log('PromiseThing:  ', promiseThing);
+            //     });
+            if (!$window.AWS) {
+                console.log('Why No AWS');
+            } else {
+                console.log('AWS We Have Lift Off!');
+            };
+        }
+
         function jobs() {
             jobsListField.fetchJobs()
                 .then(function (jobsListData) {
@@ -22,12 +34,6 @@
                     var sortedDsc = dashDataSortFilter.sortDsc(jobsListData);
                     spk.jobList = sortedDsc;
                 });
-        }
-
-        function amazonSES() {
-            if ($window.AWS) {
-                console.log('AWS We Have Lift Off');
-            };
         }
 
     }

@@ -10,15 +10,14 @@
         var spk = this;
 
         buttonClick();
-        job();
-        client();
+        clientFromJobsArray();
 
         ////////////////
 
-        function client() {
-            var clients = crewLeaderStore.fetchJobsCache();
+        function clientFromJobsArray() {
+            var jobs = crewLeaderStore.fetchJobsCache();
             var foundClient = [];
-            angular.forEach(clients, function (dummyObject) {
+            angular.forEach(jobs, function (dummyObject) {
                 if(dummyObject.$id === $routeParams.id) {
                     this.push(dummyObject);
                 }
@@ -27,12 +26,6 @@
             spk.client = client.client.fullname;
             spk.service = client.service.service;
             spk.date = client.date;
-        }
-
-        function job() {
-            var test = crewLeaderStore.fetchJobsCache();
-            console.log(test);
-
         }
 
         function buttonClick() {

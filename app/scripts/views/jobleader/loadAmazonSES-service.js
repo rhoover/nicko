@@ -21,7 +21,7 @@
 
         writeScript();
 
-        $window.AWS = deferred.resolve;
+        $window.AWS = deferred.resolve();
 
         return deferred.promise;
     }

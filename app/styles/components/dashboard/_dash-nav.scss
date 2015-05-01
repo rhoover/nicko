@@ -10,8 +10,8 @@
         height: 100%;
         @include span(2 of 24 no-gutters);
         bottom: auto;
-        margin-top: rhythm(2.5, 16px);
-        padding-top: rhythm(2.5, 16px);
+        margin-top: rhythm(3.25, 16px);
+        padding-top: rhythm(1.75, 16px);
         padding-bottom: 0px;
         border-top: none;
         border-right: .1em solid rgba(setcolor(green), .35);

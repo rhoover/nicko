@@ -17,7 +17,7 @@
             color: setcolor(white);
             @include susy-breakpoint($bp-medium, $columns-medium) {
                 font-size: 3.5em;
-                margin-top: rhythm(1.5, 16px);
+                margin-top: rhythm(1.75, 16px);
                 text-shadow: rgba(setcolor(green, darker), 1) 1px 1px 0px;
             }
         }
