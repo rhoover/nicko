@@ -17,7 +17,7 @@
 
             <!-- Clients -->
             <fieldset class="invoice-form-field">
-                <select name="client" data-ng-model="spk.newinvoice.client" data-ng-keyup="cancel($event)" data-ng-options="client.fullname for client in spk.clients" data-ng-change="spk.selectedClient(spk.newinvoice.client)" data-required class="invoice-form-select">
+                <select name="client" data-ng-model="spk.newinvoice.client" data-ng-keyup="cancel($event)" data-ng-options="client.fullname for client in spk.clients" data-ng-change="spk.selectedClient(spk.newinvoice.client)" data-ng-model-options="{updateOn: 'default'}" data-required class="invoice-form-select">
                     <option value="" ng-if="false"></option>
                 </select>
 <!--                 <ng-messages for="spk.newinvoice.client.$error" class="invoice-form-messages">
@@ -30,8 +30,11 @@
             <p class="invoice-form-header">Pick One or Several Jobs:</p>
             <fieldset data-ng-form="clientJobs" class="invoice-form-field">
                 <div data-ng-repeat="job in spk.jobs" class="invoice-form-item">
-                    <p>{{job.service.service}}:  {{job.date}}</p>
-                    <p>Quoted Price: ${{job.quote}}</p>
+                    <input type="checkbox" name="{{job.$id}}" data-ng-model="spk.newinvoice.client.jobs[job.$id]" data-ng-true-value=" '{{job.$id}}' " id="job-checkbox" class="invoice-form-item-checkbox">
+                    <label for "job-checkbox" class="invoice-form-item-label">
+                        <p>{{job.service.service}}:  {{job.date}}</p>
+                        <p>Quoted Price: ${{job.quote}}</p>
+                    </label>
                 </div>
             </fieldset>
         </section>
@@ -54,6 +57,7 @@
                 </div>
             </div>
 
+    <!-- <pre>Jobs JSON: {{spk.newinvoice.clientJobs | json}}</pre> -->
         </section>
     </div>
 </span>

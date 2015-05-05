@@ -5,7 +5,7 @@
         .module('nickoApp.views')
         .controller('HomeCtrl', HomeCtrl);
 
-    function HomeCtrl() {
+    function HomeCtrl($firebaseAuth, $firebaseArray, fbRootUrl) {
         /*jshint validthis: true */
         var spk = this;
 

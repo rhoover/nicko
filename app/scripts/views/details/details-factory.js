@@ -58,12 +58,38 @@
                 email: authorize.email,
                 password: authorize.password
             })
+
+            //set Company Data
             .then(function (authData) {
                 rootRef.child('userCompanyMeta').child(authData.uid).set(dataFromForm);
+                return authData;
+            })
+
+            //set User States Data
+            .then(function (authData) {
+                var where = dataFromForm.state.name;
+                var userProp = authData.uid;
+                var userSet = {};
+                userSet[userProp] = true;
+
+                rootRef.child('userStates').child(where).update(userSet);
+                return authData;
+            })
+
+            //update User Services Data
+            .then(function (authData) {
+                var what = dataFromForm.services;
+                var userPropAgain = authData.uid;
+                var userSetAgain = {};
+                userSetAgain[userPropAgain] = true;
+
+                for (var service in what) {
+                    rootRef.child('userServices').child(service).update(userSetAgain);
+                }
                 return 'success';
             })
             .catch(function (error) {
-                console.log('Shit! Login error:  ', error);
+                console.log('Shit! Detail Creation error:  ', error);
             });
         }
     }
